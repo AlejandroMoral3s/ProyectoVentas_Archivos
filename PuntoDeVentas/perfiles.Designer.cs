@@ -88,6 +88,7 @@
             this.dataPerfiles.Name = "dataPerfiles";
             this.dataPerfiles.Size = new System.Drawing.Size(426, 164);
             this.dataPerfiles.TabIndex = 4;
+            this.dataPerfiles.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataPerfiles_CellContentClick);
             this.dataPerfiles.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataPerfiles_CellDoubleClick);
             // 
             // btnBuscar

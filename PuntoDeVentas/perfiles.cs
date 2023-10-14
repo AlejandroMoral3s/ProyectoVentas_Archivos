@@ -134,6 +134,8 @@ namespace PuntoDeVentas
             MessageBox.Show(msg, "Control de informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
+
+
         private void dataPerfiles_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             limpiar();
@@ -227,6 +229,11 @@ namespace PuntoDeVentas
             {
                 MessageBox.Show(ex.Message + ex.StackTrace);
             }
+        }
+
+        private void dataPerfiles_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

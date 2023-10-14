@@ -116,6 +116,8 @@
     <Compile Include="productos.Designer.cs">
       <DependentUpon>productos.cs</DependentUpon>
     </Compile>
+    <Compile Include="productosObj.cs" />
+    <Compile Include="productosSql.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ReporteFacturas.cs">
@@ -130,6 +132,8 @@
     <Compile Include="usuarios.Designer.cs">
       <DependentUpon>usuarios.cs</DependentUpon>
     </Compile>
+    <Compile Include="usuariosObj.cs" />
+    <Compile Include="usuariosSql.cs" />
     <EmbeddedResource Include="AcercaDe.resx">
       <DependentUpon>AcercaDe.cs</DependentUpon>
     </EmbeddedResource>

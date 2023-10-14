@@ -43,8 +43,8 @@
             this.opcionReporteFacturas = new System.Windows.Forms.ToolStripMenuItem();
             this.pestaniaAyuda = new System.Windows.Forms.ToolStripMenuItem();
             this.opcionInformacion = new System.Windows.Forms.ToolStripMenuItem();
-            this.panelPrincipal = new System.Windows.Forms.Panel();
             this.opcionPerfiles = new System.Windows.Forms.ToolStripMenuItem();
+            this.panelPrincipal = new System.Windows.Forms.Panel();
             this.menuBar.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -56,7 +56,7 @@
             this.pestaniaAyuda});
             this.menuBar.Location = new System.Drawing.Point(0, 0);
             this.menuBar.Name = "menuBar";
-            this.menuBar.Size = new System.Drawing.Size(800, 24);
+            this.menuBar.Size = new System.Drawing.Size(1104, 24);
             this.menuBar.TabIndex = 0;
             this.menuBar.Text = "menuStrip1";
             // 
@@ -166,13 +166,6 @@
             this.opcionInformacion.Text = "Informacion de Aplicacion";
             this.opcionInformacion.Click += new System.EventHandler(this.opcionInformacion_Click);
             // 
-            // panelPrincipal
-            // 
-            this.panelPrincipal.Location = new System.Drawing.Point(0, 27);
-            this.panelPrincipal.Name = "panelPrincipal";
-            this.panelPrincipal.Size = new System.Drawing.Size(800, 423);
-            this.panelPrincipal.TabIndex = 1;
-            // 
             // opcionPerfiles
             // 
             this.opcionPerfiles.Name = "opcionPerfiles";
@@ -180,11 +173,18 @@
             this.opcionPerfiles.Text = "Perfiles";
             this.opcionPerfiles.Click += new System.EventHandler(this.opcionPerfiles_Click);
             // 
+            // panelPrincipal
+            // 
+            this.panelPrincipal.Location = new System.Drawing.Point(0, 27);
+            this.panelPrincipal.Name = "panelPrincipal";
+            this.panelPrincipal.Size = new System.Drawing.Size(1104, 635);
+            this.panelPrincipal.TabIndex = 1;
+            // 
             // menuPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1104, 661);
             this.Controls.Add(this.panelPrincipal);
             this.Controls.Add(this.menuBar);
             this.MainMenuStrip = this.menuBar;
