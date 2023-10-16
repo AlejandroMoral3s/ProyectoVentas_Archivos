@@ -84,6 +84,22 @@
       <DependentUpon>clientes.cs</DependentUpon>
     </Compile>
     <Compile Include="Conexion.cs" />
+    <Compile Include="documento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="documento.Designer.cs">
+      <DependentUpon>documento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="documentoObj.cs" />
+    <Compile Include="documentoSql.cs" />
+    <Compile Include="iva.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="iva.Designer.cs">
+      <DependentUpon>iva.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ivaObj.cs" />
+    <Compile Include="ivaSql.cs" />
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -96,6 +112,14 @@
     <Compile Include="menuPrincipal.Designer.cs">
       <DependentUpon>menuPrincipal.cs</DependentUpon>
     </Compile>
+    <Compile Include="municipio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="municipio.Designer.cs">
+      <DependentUpon>municipio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="municipioObj.cs" />
+    <Compile Include="municipioSql.cs" />
     <Compile Include="NuevaFactura.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -143,11 +167,20 @@
     <EmbeddedResource Include="clientes.resx">
       <DependentUpon>clientes.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="documento.resx">
+      <DependentUpon>documento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="iva.resx">
+      <DependentUpon>iva.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="menuPrincipal.resx">
       <DependentUpon>menuPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="municipio.resx">
+      <DependentUpon>municipio.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NuevaFactura.resx">
       <DependentUpon>NuevaFactura.cs</DependentUpon>

@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
+
 namespace PuntoDeVentas
 {
     public partial class menuPrincipal : Form
@@ -79,6 +81,26 @@ namespace PuntoDeVentas
         private void opcionPerfiles_Click(object sender, EventArgs e)
         {
             abrirFormulario(new perfiles());
+        }
+
+        private void municipiosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            abrirFormulario(new municipio());
+        }
+
+        private void menuPrincipal_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void documentoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            abrirFormulario(new documento());
+        }
+
+        private void subOpcionIva_Click(object sender, EventArgs e)
+        {
+            abrirFormulario(new iva());
         }
     }
 }
