@@ -6,25 +6,18 @@ using System.Threading.Tasks;
 
 namespace PuntoDeVentas
 {
-    internal class productosObj
+    public class productosObj
     {
 
-        public int idUsuario {  get; set; }
-        public int id_perfil {  get; set; }
+        public int id_producto {  get; set; }
+        
+        public int id_iva {  get; set; }
 
-        public string nombre {  get; set; }
+        public string nombre_producto { get; set; }
 
-        public string apellido {  get; set; }
+        public float precio {  get; set; }
 
-        public string direccion {  get; set; }
-
-        public string telefono {  get; set; }
-
-        public string username {  get; set; }
-
-        public string clave { get; set; }
-
-        public string confirmacion {  get; set; }
+        public string nota { get; set; }
 
     }
 }

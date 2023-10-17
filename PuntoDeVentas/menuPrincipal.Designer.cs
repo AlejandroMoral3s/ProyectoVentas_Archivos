@@ -33,6 +33,7 @@
             this.opcionClientes = new System.Windows.Forms.ToolStripMenuItem();
             this.documentoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.opcionProductos = new System.Windows.Forms.ToolStripMenuItem();
+            this.subOpcionIva = new System.Windows.Forms.ToolStripMenuItem();
             this.opcionUsuarios = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.opcionCambiarClave = new System.Windows.Forms.ToolStripMenuItem();
@@ -47,7 +48,6 @@
             this.opcionPerfiles = new System.Windows.Forms.ToolStripMenuItem();
             this.municipiosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panelPrincipal = new System.Windows.Forms.Panel();
-            this.subOpcionIva = new System.Windows.Forms.ToolStripMenuItem();
             this.menuBar.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -83,7 +83,7 @@
             this.opcionClientes.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.documentoToolStripMenuItem});
             this.opcionClientes.Name = "opcionClientes";
-            this.opcionClientes.Size = new System.Drawing.Size(180, 22);
+            this.opcionClientes.Size = new System.Drawing.Size(178, 22);
             this.opcionClientes.Text = "Clientes";
             this.opcionClientes.Click += new System.EventHandler(this.opcionClientes_Click);
             // 
@@ -99,45 +99,52 @@
             this.opcionProductos.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.subOpcionIva});
             this.opcionProductos.Name = "opcionProductos";
-            this.opcionProductos.Size = new System.Drawing.Size(180, 22);
+            this.opcionProductos.Size = new System.Drawing.Size(178, 22);
             this.opcionProductos.Text = "Productos";
             this.opcionProductos.Click += new System.EventHandler(this.opcionProductos_Click);
+            // 
+            // subOpcionIva
+            // 
+            this.subOpcionIva.Name = "subOpcionIva";
+            this.subOpcionIva.Size = new System.Drawing.Size(89, 22);
+            this.subOpcionIva.Text = "Iva";
+            this.subOpcionIva.Click += new System.EventHandler(this.subOpcionIva_Click);
             // 
             // opcionUsuarios
             // 
             this.opcionUsuarios.Name = "opcionUsuarios";
-            this.opcionUsuarios.Size = new System.Drawing.Size(180, 22);
+            this.opcionUsuarios.Size = new System.Drawing.Size(178, 22);
             this.opcionUsuarios.Text = "Usuarios";
             this.opcionUsuarios.Click += new System.EventHandler(this.opcionUsuarios_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(175, 6);
             // 
             // opcionCambiarClave
             // 
             this.opcionCambiarClave.Name = "opcionCambiarClave";
-            this.opcionCambiarClave.Size = new System.Drawing.Size(180, 22);
+            this.opcionCambiarClave.Size = new System.Drawing.Size(178, 22);
             this.opcionCambiarClave.Text = "Cambiar Clave";
             this.opcionCambiarClave.Click += new System.EventHandler(this.opcionCambiarClave_Click);
             // 
             // opcionCambiarUsuario
             // 
             this.opcionCambiarUsuario.Name = "opcionCambiarUsuario";
-            this.opcionCambiarUsuario.Size = new System.Drawing.Size(180, 22);
+            this.opcionCambiarUsuario.Size = new System.Drawing.Size(178, 22);
             this.opcionCambiarUsuario.Text = "Cambiar de Usuario";
             this.opcionCambiarUsuario.Click += new System.EventHandler(this.opcionCambiarUsuario_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(175, 6);
             // 
             // opcionSalir
             // 
             this.opcionSalir.Name = "opcionSalir";
-            this.opcionSalir.Size = new System.Drawing.Size(180, 22);
+            this.opcionSalir.Size = new System.Drawing.Size(178, 22);
             this.opcionSalir.Text = "SALIR";
             this.opcionSalir.Click += new System.EventHandler(this.opcionSalir_Click);
             // 
@@ -201,13 +208,6 @@
             this.panelPrincipal.Name = "panelPrincipal";
             this.panelPrincipal.Size = new System.Drawing.Size(1104, 635);
             this.panelPrincipal.TabIndex = 1;
-            // 
-            // subOpcionIva
-            // 
-            this.subOpcionIva.Name = "subOpcionIva";
-            this.subOpcionIva.Size = new System.Drawing.Size(180, 22);
-            this.subOpcionIva.Text = "Iva";
-            this.subOpcionIva.Click += new System.EventHandler(this.subOpcionIva_Click);
             // 
             // menuPrincipal
             // 

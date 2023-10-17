@@ -97,6 +97,10 @@ namespace PuntoDeVentas
             }
         }
 
+
+
+
+
         private void btnBuscarPerfil_Click(object sender, EventArgs e)
         {
             buscarPerfil();
@@ -209,6 +213,8 @@ namespace PuntoDeVentas
             }
         }
     
+
+
     
         //METODOS DE CONTROL
 
@@ -236,6 +242,8 @@ namespace PuntoDeVentas
         {
             MessageBox.Show(msg, "Control de informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
+
+
 
         private void datagridUsuarios_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -391,6 +399,12 @@ namespace PuntoDeVentas
             {
                 MessageBox.Show(ex.Message + ex.StackTrace);
             }
+        }
+
+        private void datagridPerfil_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            txtIdPerfil.Clear();
+            txtIdPerfil.Text = datagridPerfil.CurrentRow.Cells["id_perfil"].Value.ToString(); 
         }
     }
 }

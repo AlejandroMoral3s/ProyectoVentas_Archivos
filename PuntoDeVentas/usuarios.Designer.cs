@@ -47,10 +47,10 @@
             this.txtUserName = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.datagridPerfil = new System.Windows.Forms.DataGridView();
+            this.btnBuscarPerfil = new System.Windows.Forms.Button();
             this.txtBuscarPerfil = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.btnBuscarPerfil = new System.Windows.Forms.Button();
+            this.datagridPerfil = new System.Windows.Forms.DataGridView();
             this.txtConfirmacion = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.datagridUsuarios = new System.Windows.Forms.DataGridView();
@@ -222,13 +222,15 @@
             this.panel1.Size = new System.Drawing.Size(536, 214);
             this.panel1.TabIndex = 18;
             // 
-            // datagridPerfil
+            // btnBuscarPerfil
             // 
-            this.datagridPerfil.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.datagridPerfil.Location = new System.Drawing.Point(33, 78);
-            this.datagridPerfil.Name = "datagridPerfil";
-            this.datagridPerfil.Size = new System.Drawing.Size(240, 80);
-            this.datagridPerfil.TabIndex = 5;
+            this.btnBuscarPerfil.Location = new System.Drawing.Point(369, 151);
+            this.btnBuscarPerfil.Name = "btnBuscarPerfil";
+            this.btnBuscarPerfil.Size = new System.Drawing.Size(96, 23);
+            this.btnBuscarPerfil.TabIndex = 8;
+            this.btnBuscarPerfil.Text = "BUSCAR";
+            this.btnBuscarPerfil.UseVisualStyleBackColor = true;
+            this.btnBuscarPerfil.Click += new System.EventHandler(this.btnBuscarPerfil_Click);
             // 
             // txtBuscarPerfil
             // 
@@ -246,15 +248,14 @@
             this.label10.TabIndex = 6;
             this.label10.Text = "Ingresar el nombre de perfil:";
             // 
-            // btnBuscarPerfil
+            // datagridPerfil
             // 
-            this.btnBuscarPerfil.Location = new System.Drawing.Point(369, 151);
-            this.btnBuscarPerfil.Name = "btnBuscarPerfil";
-            this.btnBuscarPerfil.Size = new System.Drawing.Size(96, 23);
-            this.btnBuscarPerfil.TabIndex = 8;
-            this.btnBuscarPerfil.Text = "BUSCAR";
-            this.btnBuscarPerfil.UseVisualStyleBackColor = true;
-            this.btnBuscarPerfil.Click += new System.EventHandler(this.btnBuscarPerfil_Click);
+            this.datagridPerfil.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.datagridPerfil.Location = new System.Drawing.Point(33, 78);
+            this.datagridPerfil.Name = "datagridPerfil";
+            this.datagridPerfil.Size = new System.Drawing.Size(240, 80);
+            this.datagridPerfil.TabIndex = 5;
+            this.datagridPerfil.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.datagridPerfil_CellDoubleClick);
             // 
             // txtConfirmacion
             // 
