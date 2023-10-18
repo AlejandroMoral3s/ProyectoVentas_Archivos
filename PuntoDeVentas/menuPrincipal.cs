@@ -33,73 +33,62 @@ namespace PuntoDeVentas
             formularioHijo.Show();
         }
 
-        private void opcionClientes_Click(object sender, EventArgs e)
+        private void opcion_clientes_Click(object sender, EventArgs e)
         {
             abrirFormulario(new Clientes());
         }
 
-        private void opcionProductos_Click(object sender, EventArgs e)
+        private void opcion_Productos_Click(object sender, EventArgs e)
         {
             abrirFormulario(new productos());
         }
 
-        private void opcionUsuarios_Click(object sender, EventArgs e)
+        private void opcion_usuarios_Click(object sender, EventArgs e)
         {
             abrirFormulario(new usuarios());
         }
 
-        private void opcionCambiarClave_Click(object sender, EventArgs e)
+        private void opcion_cambiarClave_Click(object sender, EventArgs e)
         {
             abrirFormulario(new cambioClave());
         }
 
-        private void opcionCambiarUsuario_Click(object sender, EventArgs e)
+        private void opcion_cambiarUsuario_Click(object sender, EventArgs e)
         {
-            // En este metodo se deberia abrir el LOGIN y cerrar el menu principal.
+            
         }
 
-        private void opcionSalir_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void opcionNuevaFactura_Click(object sender, EventArgs e)
+        private void opcion_nuevaFactura_Click(object sender, EventArgs e)
         {
             abrirFormulario(new NuevaFactura());
         }
 
-        private void opcionReporteFacturas_Click(object sender, EventArgs e)
+        private void opcion_reportes_Click(object sender, EventArgs e)
         {
             abrirFormulario(new ReporteFacturas());
         }
 
-        private void opcionInformacion_Click(object sender, EventArgs e)
+        private void opcion_informacion_Click(object sender, EventArgs e)
         {
             abrirFormulario(new AcercaDe());
         }
 
-
-        private void menuPrincipal_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void documentoToolStripMenuItem_Click(object sender, EventArgs e)
+        private void subopcion_documentos_Click(object sender, EventArgs e)
         {
             abrirFormulario(new documento());
         }
 
-        private void subOpcionIva_Click(object sender, EventArgs e)
-        {
-            abrirFormulario(new iva());
-        }
-
-        private void municipioToolStripMenuItem_Click(object sender, EventArgs e)
+        private void subopcion_municipio_Click(object sender, EventArgs e)
         {
             abrirFormulario(new municipio());
         }
 
-        private void perfilesToolStripMenuItem_Click(object sender, EventArgs e)
+        private void subopcion_ivas_Click(object sender, EventArgs e)
+        {
+            abrirFormulario(new iva());
+        }
+
+        private void subopcion_perfiles_Click(object sender, EventArgs e)
         {
             abrirFormulario(new perfiles());
         }
