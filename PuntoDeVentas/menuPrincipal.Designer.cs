@@ -45,106 +45,92 @@
             this.opcionReporteFacturas = new System.Windows.Forms.ToolStripMenuItem();
             this.pestaniaAyuda = new System.Windows.Forms.ToolStripMenuItem();
             this.opcionInformacion = new System.Windows.Forms.ToolStripMenuItem();
-            this.opcionPerfiles = new System.Windows.Forms.ToolStripMenuItem();
-            this.municipiosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panelPrincipal = new System.Windows.Forms.Panel();
+            this.perfilesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.municipioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.menuBar.SuspendLayout();
+            this.panelPrincipal.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // menuBar
             // 
-            this.menuBar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.pestaniaArchivo,
-            this.pestaniaMovimientos,
-            this.pestaniaAyuda});
             this.menuBar.Location = new System.Drawing.Point(0, 0);
             this.menuBar.Name = "menuBar";
-            this.menuBar.Size = new System.Drawing.Size(1104, 24);
+            this.menuBar.Size = new System.Drawing.Size(1133, 24);
             this.menuBar.TabIndex = 0;
             this.menuBar.Text = "menuStrip1";
             // 
             // pestaniaArchivo
             // 
-            this.pestaniaArchivo.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.opcionClientes,
-            this.opcionProductos,
-            this.opcionUsuarios,
-            this.toolStripSeparator1,
-            this.opcionCambiarClave,
-            this.opcionCambiarUsuario,
-            this.toolStripSeparator2,
-            this.opcionSalir});
             this.pestaniaArchivo.Name = "pestaniaArchivo";
             this.pestaniaArchivo.Size = new System.Drawing.Size(70, 20);
             this.pestaniaArchivo.Text = "ARCHIVO";
             // 
             // opcionClientes
             // 
-            this.opcionClientes.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.documentoToolStripMenuItem});
             this.opcionClientes.Name = "opcionClientes";
-            this.opcionClientes.Size = new System.Drawing.Size(178, 22);
+            this.opcionClientes.Size = new System.Drawing.Size(180, 22);
             this.opcionClientes.Text = "Clientes";
             this.opcionClientes.Click += new System.EventHandler(this.opcionClientes_Click);
             // 
             // documentoToolStripMenuItem
             // 
             this.documentoToolStripMenuItem.Name = "documentoToolStripMenuItem";
-            this.documentoToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
-            this.documentoToolStripMenuItem.Text = "Documento";
+            this.documentoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.documentoToolStripMenuItem.Text = "Documentos";
             this.documentoToolStripMenuItem.Click += new System.EventHandler(this.documentoToolStripMenuItem_Click);
             // 
             // opcionProductos
             // 
-            this.opcionProductos.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.subOpcionIva});
             this.opcionProductos.Name = "opcionProductos";
-            this.opcionProductos.Size = new System.Drawing.Size(178, 22);
+            this.opcionProductos.Size = new System.Drawing.Size(180, 22);
             this.opcionProductos.Text = "Productos";
             this.opcionProductos.Click += new System.EventHandler(this.opcionProductos_Click);
             // 
             // subOpcionIva
             // 
             this.subOpcionIva.Name = "subOpcionIva";
-            this.subOpcionIva.Size = new System.Drawing.Size(89, 22);
+            this.subOpcionIva.Size = new System.Drawing.Size(180, 22);
             this.subOpcionIva.Text = "Iva";
             this.subOpcionIva.Click += new System.EventHandler(this.subOpcionIva_Click);
             // 
             // opcionUsuarios
             // 
             this.opcionUsuarios.Name = "opcionUsuarios";
-            this.opcionUsuarios.Size = new System.Drawing.Size(178, 22);
+            this.opcionUsuarios.Size = new System.Drawing.Size(180, 22);
             this.opcionUsuarios.Text = "Usuarios";
             this.opcionUsuarios.Click += new System.EventHandler(this.opcionUsuarios_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(175, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
             // 
             // opcionCambiarClave
             // 
             this.opcionCambiarClave.Name = "opcionCambiarClave";
-            this.opcionCambiarClave.Size = new System.Drawing.Size(178, 22);
+            this.opcionCambiarClave.Size = new System.Drawing.Size(180, 22);
             this.opcionCambiarClave.Text = "Cambiar Clave";
             this.opcionCambiarClave.Click += new System.EventHandler(this.opcionCambiarClave_Click);
             // 
             // opcionCambiarUsuario
             // 
             this.opcionCambiarUsuario.Name = "opcionCambiarUsuario";
-            this.opcionCambiarUsuario.Size = new System.Drawing.Size(178, 22);
+            this.opcionCambiarUsuario.Size = new System.Drawing.Size(180, 22);
             this.opcionCambiarUsuario.Text = "Cambiar de Usuario";
             this.opcionCambiarUsuario.Click += new System.EventHandler(this.opcionCambiarUsuario_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(175, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(177, 6);
             // 
             // opcionSalir
             // 
             this.opcionSalir.Name = "opcionSalir";
-            this.opcionSalir.Size = new System.Drawing.Size(178, 22);
+            this.opcionSalir.Size = new System.Drawing.Size(180, 22);
             this.opcionSalir.Text = "SALIR";
             this.opcionSalir.Click += new System.EventHandler(this.opcionSalir_Click);
             // 
@@ -173,10 +159,6 @@
             // 
             // pestaniaAyuda
             // 
-            this.pestaniaAyuda.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.opcionInformacion,
-            this.opcionPerfiles,
-            this.municipiosToolStripMenuItem});
             this.pestaniaAyuda.Name = "pestaniaAyuda";
             this.pestaniaAyuda.Size = new System.Drawing.Size(57, 20);
             this.pestaniaAyuda.Text = "AYUDA";
@@ -188,32 +170,43 @@
             this.opcionInformacion.Text = "Informacion de Aplicacion";
             this.opcionInformacion.Click += new System.EventHandler(this.opcionInformacion_Click);
             // 
-            // opcionPerfiles
-            // 
-            this.opcionPerfiles.Name = "opcionPerfiles";
-            this.opcionPerfiles.Size = new System.Drawing.Size(214, 22);
-            this.opcionPerfiles.Text = "Perfiles";
-            this.opcionPerfiles.Click += new System.EventHandler(this.opcionPerfiles_Click);
-            // 
-            // municipiosToolStripMenuItem
-            // 
-            this.municipiosToolStripMenuItem.Name = "municipiosToolStripMenuItem";
-            this.municipiosToolStripMenuItem.Size = new System.Drawing.Size(214, 22);
-            this.municipiosToolStripMenuItem.Text = "Municipios";
-            this.municipiosToolStripMenuItem.Click += new System.EventHandler(this.municipiosToolStripMenuItem_Click);
-            // 
             // panelPrincipal
             // 
+            this.panelPrincipal.Controls.Add(this.pictureBox1);
             this.panelPrincipal.Location = new System.Drawing.Point(0, 27);
             this.panelPrincipal.Name = "panelPrincipal";
-            this.panelPrincipal.Size = new System.Drawing.Size(1104, 635);
+            this.panelPrincipal.Size = new System.Drawing.Size(1130, 725);
             this.panelPrincipal.TabIndex = 1;
+            // 
+            // perfilesToolStripMenuItem
+            // 
+            this.perfilesToolStripMenuItem.Name = "perfilesToolStripMenuItem";
+            this.perfilesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.perfilesToolStripMenuItem.Text = "Perfiles";
+            this.perfilesToolStripMenuItem.Click += new System.EventHandler(this.perfilesToolStripMenuItem_Click);
+            // 
+            // municipioToolStripMenuItem
+            // 
+            this.municipioToolStripMenuItem.Name = "municipioToolStripMenuItem";
+            this.municipioToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.municipioToolStripMenuItem.Text = "Municipios";
+            this.municipioToolStripMenuItem.Click += new System.EventHandler(this.municipioToolStripMenuItem_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::PuntoDeVentas.Properties.Resources.Ventas011;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(1127, 725);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
             // 
             // menuPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1104, 661);
+            this.ClientSize = new System.Drawing.Size(1133, 758);
             this.Controls.Add(this.panelPrincipal);
             this.Controls.Add(this.menuBar);
             this.MainMenuStrip = this.menuBar;
@@ -222,6 +215,8 @@
             this.Load += new System.EventHandler(this.menuPrincipal_Load);
             this.menuBar.ResumeLayout(false);
             this.menuBar.PerformLayout();
+            this.panelPrincipal.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -245,9 +240,10 @@
         private System.Windows.Forms.ToolStripMenuItem opcionReporteFacturas;
         private System.Windows.Forms.ToolStripMenuItem opcionInformacion;
         private System.Windows.Forms.Panel panelPrincipal;
-        private System.Windows.Forms.ToolStripMenuItem opcionPerfiles;
-        private System.Windows.Forms.ToolStripMenuItem municipiosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem documentoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem subOpcionIva;
+        private System.Windows.Forms.ToolStripMenuItem municipioToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem perfilesToolStripMenuItem;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

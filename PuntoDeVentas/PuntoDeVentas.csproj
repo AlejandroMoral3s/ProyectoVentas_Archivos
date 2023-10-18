@@ -83,6 +83,8 @@
     <Compile Include="clientes.Designer.cs">
       <DependentUpon>clientes.cs</DependentUpon>
     </Compile>
+    <Compile Include="clientesObj.cs" />
+    <Compile Include="clientesSql.cs" />
     <Compile Include="Conexion.cs" />
     <Compile Include="documento.cs">
       <SubType>Form</SubType>
@@ -220,9 +222,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Resources\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
       <Visible>False</Visible>
@@ -234,6 +234,12 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ventas01.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ventas011.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

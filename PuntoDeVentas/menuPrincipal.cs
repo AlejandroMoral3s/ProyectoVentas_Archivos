@@ -78,15 +78,6 @@ namespace PuntoDeVentas
             abrirFormulario(new AcercaDe());
         }
 
-        private void opcionPerfiles_Click(object sender, EventArgs e)
-        {
-            abrirFormulario(new perfiles());
-        }
-
-        private void municipiosToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            abrirFormulario(new municipio());
-        }
 
         private void menuPrincipal_Load(object sender, EventArgs e)
         {
@@ -101,6 +92,16 @@ namespace PuntoDeVentas
         private void subOpcionIva_Click(object sender, EventArgs e)
         {
             abrirFormulario(new iva());
+        }
+
+        private void municipioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            abrirFormulario(new municipio());
+        }
+
+        private void perfilesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            abrirFormulario(new perfiles());
         }
     }
 }
