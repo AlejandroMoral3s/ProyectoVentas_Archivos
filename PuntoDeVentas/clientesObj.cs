@@ -15,6 +15,8 @@ namespace PuntoDeVentas
 
         public int id_municipio { get; set; }
 
+        public string noDocumento {  get; set; }
+
         public string nit {  get; set; }
 
         public string nombres {  get; set; }

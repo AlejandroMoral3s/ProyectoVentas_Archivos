@@ -77,6 +77,12 @@
     <Compile Include="cambioClave.Designer.cs">
       <DependentUpon>cambioClave.cs</DependentUpon>
     </Compile>
+    <Compile Include="cambioUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="cambioUsuario.Designer.cs">
+      <DependentUpon>cambioUsuario.cs</DependentUpon>
+    </Compile>
     <Compile Include="clientes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -86,6 +92,8 @@
     <Compile Include="clientesObj.cs" />
     <Compile Include="clientesSql.cs" />
     <Compile Include="Conexion.cs" />
+    <Compile Include="detalleFacturaObj.cs" />
+    <Compile Include="detalleFacturaSql.cs" />
     <Compile Include="documento.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -128,6 +136,8 @@
     <Compile Include="NuevaFactura.Designer.cs">
       <DependentUpon>NuevaFactura.cs</DependentUpon>
     </Compile>
+    <Compile Include="NuevaFacturaObj.cs" />
+    <Compile Include="NuevaFacturaSql.cs" />
     <Compile Include="perfiles.cs">
       <SubType>Form</SubType>
     </Compile>

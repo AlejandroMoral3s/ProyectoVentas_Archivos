@@ -30,10 +30,12 @@ namespace PuntoDeVentas
         {
             try
             {
+
+                //RECORDAR QUE DENTRO DE CLIENTES HAY QUE AGREGAR UN PRIMER REGISTRO CON LOS DATOS INDEFINIDOS PARA CONSUMIDOR FINAL
                 clientesSql us = new clientesSql();
-                datagridDocumentos.DataSource = us.listar_en_dataGrids("Select * from Documento");
-                datagridMunicipios.DataSource = us.listar_en_dataGrids("Select * from Municipio");
-                datagridClientes.DataSource = us.listar_en_dataGrids("Select * from Cliente");
+                datagridDocumentos.DataSource = us.listar_en_dataGrids("Select * from Documento where id_documento > 1");
+                datagridMunicipios.DataSource = us.listar_en_dataGrids("Select * from Municipio where id_municipio > 1");
+                datagridClientes.DataSource = us.listar_en_dataGrids("Select * from Cliente where id_cliente > 1");
 
             }
             catch (Exception ex)
@@ -116,6 +118,7 @@ namespace PuntoDeVentas
             txtBuscarDocumento.Clear();
             txtBuscarMunicipio.Clear();
             txtBuscarCliente.Clear();
+            txtNoDocumento.Clear();
         }
 
         private void MensajeError(string msg)
@@ -176,6 +179,12 @@ namespace PuntoDeVentas
                     error.SetError(txtIdMunicipio, "Ingrese el id_municipio");
                     return;
                 }
+                if (txtNoDocumento.Text == string.Empty)
+                {
+                    MensajeError("Falta llenar algunos cuadros de informacion.");
+                    error.SetError(txtNoDocumento, "Ingrese el No.Documento");
+                    return;
+                }
                 if (txtNombres.Text == string.Empty)
                 {
                     MensajeError("Falta llenar algunos cuadros de informacion.");
@@ -215,6 +224,7 @@ namespace PuntoDeVentas
                 obj.id_cliente = int.Parse(txtIdCliente.Text);
                 obj.id_documento = int.Parse(txtIdDocumento.Text);
                 obj.id_municipio = int.Parse(txtIdMunicipio.Text);
+                obj.noDocumento = txtNoDocumento.Text;
                 obj.nombres = txtNombres.Text;
                 obj.apellidos = txtApellidos.Text;
                 obj.direccion = txtDireccion.Text;
@@ -274,6 +284,12 @@ namespace PuntoDeVentas
                     error.SetError(txtIdMunicipio, "Ingrese el id_municipio");
                     return;
                 }
+                if (txtNoDocumento.Text == string.Empty)
+                {
+                    MensajeError("Falta llenar algunos cuadros de informacion.");
+                    error.SetError(txtNoDocumento, "Ingrese el No.Documento");
+                    return;
+                }
                 if (txtNombres.Text == string.Empty)
                 {
                     MensajeError("Falta llenar algunos cuadros de informacion.");
@@ -313,6 +329,7 @@ namespace PuntoDeVentas
                 obj.id_cliente = int.Parse(txtIdCliente.Text);
                 obj.id_documento = int.Parse(txtIdDocumento.Text);
                 obj.id_municipio = int.Parse(txtIdMunicipio.Text);
+                obj.noDocumento = txtNoDocumento.Text;
                 obj.nombres = txtNombres.Text;
                 obj.apellidos = txtApellidos.Text;
                 obj.direccion = txtDireccion.Text;
@@ -413,6 +430,7 @@ namespace PuntoDeVentas
             txtTelefono.Text = datagridClientes.CurrentRow.Cells["telefono"].Value.ToString();
             calendarioNacimiento.Text = datagridClientes.CurrentRow.Cells["fecha_nacimiento"].Value.ToString();
             calendarioIngreso.Text = datagridClientes.CurrentRow.Cells["fecha_ingreso"].Value.ToString();
+            txtNoDocumento.Text = datagridClientes.CurrentRow.Cells["no_documento"].Value.ToString();
         }
     }
 }

@@ -8,17 +8,17 @@ using System.Threading.Tasks;
 
 namespace PuntoDeVentas
 {
-    public class clientesSql
+    public class NuevaFacturaSql
     {
 
-        public DataTable listar_en_dataGrids(string consulta)
+        public DataTable ListarClientes()
         {
             SqlDataReader lista;
             DataTable Tabla = new DataTable();
             SqlConnection con = new SqlConnection();
             try
             {
-                string sql = consulta;
+                string sql = "Select * from Cliente where id_cliente > 1";
                 con = Conexion.crearInstancia().crearConexion();
                 SqlCommand comando = new SqlCommand(sql, con);
                 con.Open();
@@ -37,14 +37,14 @@ namespace PuntoDeVentas
             }
         }
 
-        public DataTable BuscarClientes(string nombre, string apellido)
+        public DataTable ListarProductos()
         {
             SqlDataReader lista;
             DataTable Tabla = new DataTable();
             SqlConnection con = new SqlConnection();
             try
             {
-                string sql = "Select * from Cliente where nombres like '%' + '" + nombre + "' +'%' or apellidos like '%' + '" + apellido + "' + '%'";
+                string sql = "Select * from Producto";
                 con = Conexion.crearInstancia().crearConexion();
                 SqlCommand comando = new SqlCommand(sql, con);
                 con.Open();
@@ -63,14 +63,14 @@ namespace PuntoDeVentas
             }
         }
 
-        public DataTable BuscarDocumento(string valor)
+        public DataTable BuscarNit(string nit)
         {
             SqlDataReader lista;
             DataTable Tabla = new DataTable();
             SqlConnection con = new SqlConnection();
             try
             {
-                string sql = "Select * from Documento where tipo like '%' + '" + valor + "' +'%'";
+                string sql = "Select * from Cliente where nit_cliente = '" + nit + "'";
                 con = Conexion.crearInstancia().crearConexion();
                 SqlCommand comando = new SqlCommand(sql, con);
                 con.Open();
@@ -89,14 +89,14 @@ namespace PuntoDeVentas
             }
         }
 
-        public DataTable BuscarMunicipio(string valor)
+        public DataTable BuscarProductos(string valor)
         {
             SqlDataReader lista;
             DataTable Tabla = new DataTable();
             SqlConnection con = new SqlConnection();
             try
             {
-                string sql = "Select * from Municipio where nombre like '%' + '" + valor + "' +'%'";
+                string sql = "Select * from Producto where nombre like '%' + '" + valor + "' +'%'";
                 con = Conexion.crearInstancia().crearConexion();
                 SqlCommand comando = new SqlCommand(sql, con);
                 con.Open();
@@ -114,18 +114,15 @@ namespace PuntoDeVentas
                 if (con.State == ConnectionState.Open) con.Close();
             }
         }
-
-
-
-        public string Insertar(clientesObj obj)
+       
+        public string InsertarFactura(NuevaFacturaObj obj)
         {
             string respuesta = "";
             SqlConnection con = new SqlConnection();
             try
             {
-                string sql = "Insert into Cliente (id_cliente, id_documento, id_municipio, no_documento, nit_cliente, nombres, apellidos, direccion, telefono, fecha_nacimiento, fecha_ingreso) " +
-                    "values (" + "'" + obj.id_cliente + "'," + "'" + obj.id_documento+ "'," + "'" + obj.id_municipio + "'," + "'" + obj.noDocumento + "'," + "'" + obj.nit + "'," + 
-                    "'" + obj.nombres + "'," + "'" + obj.apellidos + "'," + "'" + obj.direccion + "'," + "'"+obj.telefono+"'," + "'" + obj.fecha_nacimiento + "'," + "'" + obj.fecha_ingreso + "')";
+                string sql = "Insert into Factura (id_factura, id_usuario, fecha_emision, id_cliente, total_factura) " +
+                    "values (" + "'" + obj.id_factura + "'," + "'" + obj.id_usuario + "'," + "'" + obj.fecha_emision + "'," + "'" + obj.id_cliente + "'," + "'" + obj.total_factura + "')";
 
                 con = Conexion.crearInstancia().crearConexion();
                 SqlCommand comando = new SqlCommand(sql, con);
@@ -144,17 +141,13 @@ namespace PuntoDeVentas
             return respuesta;
         }
 
-        public string Actualizar(clientesObj obj)
+        public string Actualizar(NuevaFacturaObj obj)
         {
             string respuesta = "";
             SqlConnection con = new SqlConnection();
             try
             {
-                string sql = "Update Cliente set id_documento = '"+obj.id_documento+"', id_municipio = '"+obj.id_municipio + "', no_documento = '" + obj.noDocumento +
-                    "', nombres = '" + obj.nombres + "', apellidos = '" + obj.apellidos +
-                    "', direccion = '" + obj.direccion + "', telefono = '" + obj.telefono + "', fecha_nacimiento = '" + obj.fecha_nacimiento +
-                    "', fecha_ingreso = '" + obj.fecha_ingreso + "' where id_cliente = '" + obj.id_cliente + "'";
-                
+                string sql = "Update Factura set total_factura = '" + obj.total_factura + "' where id_factura = '" + obj.id_factura + "'";
                 con = Conexion.crearInstancia().crearConexion();
                 SqlCommand comando = new SqlCommand(sql, con);
                 con.Open();
@@ -172,17 +165,17 @@ namespace PuntoDeVentas
             return respuesta;
         }
 
-        public string Eliminar(int Id)
+        public string EliminarFactura(int id_factura)
         {
             string respuesta = "";
             SqlConnection con = new SqlConnection();
             try
             {
-                string sql = "Delete from Cliente where id_cliente = '" + Id + "'";
+                string sql = "Delete from Factura where id_factura = '" + id_factura + "'";
                 con = Conexion.crearInstancia().crearConexion();
                 SqlCommand comando = new SqlCommand(sql, con);
                 con.Open();
-                respuesta = comando.ExecuteNonQuery() == 1 ? "OK" : "No se pudo actualizar el registro";
+                respuesta = comando.ExecuteNonQuery() == 1 ? "OK" : "No se pudo eliminar la factura";
 
             }
             catch (Exception ex)

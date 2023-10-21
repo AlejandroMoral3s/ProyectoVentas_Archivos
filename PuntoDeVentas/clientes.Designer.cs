@@ -70,6 +70,8 @@
             this.calendarioNacimiento = new System.Windows.Forms.DateTimePicker();
             this.calendarioIngreso = new System.Windows.Forms.DateTimePicker();
             this.error = new System.Windows.Forms.ErrorProvider(this.components);
+            this.txtNoDocumento = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.datagridClientes)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.datagridDocumentos)).BeginInit();
@@ -278,7 +280,7 @@
             // 
             // txtApellidos
             // 
-            this.txtApellidos.Location = new System.Drawing.Point(154, 266);
+            this.txtApellidos.Location = new System.Drawing.Point(154, 278);
             this.txtApellidos.Name = "txtApellidos";
             this.txtApellidos.Size = new System.Drawing.Size(201, 20);
             this.txtApellidos.TabIndex = 40;
@@ -286,7 +288,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(48, 269);
+            this.label7.Location = new System.Drawing.Point(48, 281);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(69, 13);
             this.label7.TabIndex = 39;
@@ -294,7 +296,7 @@
             // 
             // txtNombres
             // 
-            this.txtNombres.Location = new System.Drawing.Point(154, 212);
+            this.txtNombres.Location = new System.Drawing.Point(154, 241);
             this.txtNombres.Name = "txtNombres";
             this.txtNombres.Size = new System.Drawing.Size(201, 20);
             this.txtNombres.TabIndex = 36;
@@ -302,7 +304,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(48, 215);
+            this.label5.Location = new System.Drawing.Point(48, 244);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(64, 13);
             this.label5.TabIndex = 35;
@@ -310,7 +312,7 @@
             // 
             // txtNit
             // 
-            this.txtNit.Location = new System.Drawing.Point(154, 162);
+            this.txtNit.Location = new System.Drawing.Point(154, 206);
             this.txtNit.Name = "txtNit";
             this.txtNit.Size = new System.Drawing.Size(136, 20);
             this.txtNit.TabIndex = 34;
@@ -318,7 +320,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(48, 165);
+            this.label4.Location = new System.Drawing.Point(48, 209);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(50, 13);
             this.label4.TabIndex = 33;
@@ -432,11 +434,29 @@
             // 
             this.error.ContainerControl = this;
             // 
+            // txtNoDocumento
+            // 
+            this.txtNoDocumento.Location = new System.Drawing.Point(154, 170);
+            this.txtNoDocumento.Name = "txtNoDocumento";
+            this.txtNoDocumento.Size = new System.Drawing.Size(136, 20);
+            this.txtNoDocumento.TabIndex = 63;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(48, 173);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(102, 13);
+            this.label15.TabIndex = 62;
+            this.label15.Text = "NO. DOCUMENTO:";
+            // 
             // Clientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1107, 686);
+            this.Controls.Add(this.txtNoDocumento);
+            this.Controls.Add(this.label15);
             this.Controls.Add(this.calendarioIngreso);
             this.Controls.Add(this.calendarioNacimiento);
             this.Controls.Add(this.label14);
@@ -510,7 +530,7 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txtNombres;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox txtNit;
+        public System.Windows.Forms.TextBox txtNit;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtIdCliente;
         private System.Windows.Forms.Label label2;
@@ -525,5 +545,7 @@
         private System.Windows.Forms.DateTimePicker calendarioNacimiento;
         private System.Windows.Forms.DateTimePicker calendarioIngreso;
         private System.Windows.Forms.ErrorProvider error;
+        private System.Windows.Forms.TextBox txtNoDocumento;
+        private System.Windows.Forms.Label label15;
     }
 }
