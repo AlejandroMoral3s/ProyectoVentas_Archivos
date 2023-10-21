@@ -122,7 +122,7 @@ namespace PuntoDeVentas
             try
             {
                 string sql = "Insert into Producto (id_producto, id_iva, nombre, precio, nota) " +
-                    "values (" + "'" + obj.id_producto + "'," + "'" + obj.id_iva + "'," + "'" + obj.nombre_producto + "'," + "'" + obj.precio + "'," + "'" + obj.nota + "')";
+                    "values (" + "'" + obj.id_producto + "'," + "'" + obj.id_iva + "'," + "'" + obj.nombre_producto + "'," + "" + obj.precio + "," + "'" + obj.nota + "')";
 
                 con = Conexion.crearInstancia().crearConexion();
                 SqlCommand comando = new SqlCommand(sql, con);
