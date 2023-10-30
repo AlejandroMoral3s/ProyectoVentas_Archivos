@@ -15,6 +15,10 @@ namespace PuntoDeVentas
     public partial class NuevaFactura : Form
     {
 
+        int idActual_Factura = 0;
+        int idActual_Detalle = 0;
+        bool crearFactura_permitido = true;
+
         public string precioVolatil = "";
         public decimal totalFacturaVolatil = 0;
 
@@ -25,8 +29,57 @@ namespace PuntoDeVentas
 
         private void NuevaFactura_Load(object sender, EventArgs e)
         {
+            extraer_ultimo_id_Factura();
+            extraer_ultimo_id_detalle();
             listarClientes();
             listarProductos();
+        }
+
+
+        private void extraer_ultimo_id_Factura()
+        {
+
+            NuevaFacturaSql ps = new NuevaFacturaSql();
+
+            string indiceVolatil = ps.ultimoId_nuevoFactura();
+
+
+
+            if (indiceVolatil.Equals(""))
+            {
+                idActual_Factura = 1;
+
+                txtIdFactura.Text = idActual_Factura.ToString();
+            }
+            else
+            {
+                idActual_Factura = int.Parse(indiceVolatil) + 1;
+                txtIdFactura.Text = idActual_Factura.ToString();
+            }
+
+        }
+
+        private void extraer_ultimo_id_detalle()
+        {
+
+            detalleFacturaSql ps = new detalleFacturaSql();
+
+            string indiceVolatil = ps.ultimoId_detalle();
+
+
+
+            if (indiceVolatil.Equals(""))
+            {
+                idActual_Detalle = 1;
+
+                txtIdDetalle.Text = idActual_Detalle.ToString();
+            }
+            else
+            {
+                idActual_Detalle = int.Parse(indiceVolatil) + 1;
+                txtIdDetalle.Text = idActual_Detalle.ToString();
+            }
+
         }
 
 
@@ -223,7 +276,7 @@ namespace PuntoDeVentas
                
                 //SI LA CASILLA DE ID FACTURA ESTA VISIBLE SE CREARA UN REGISTRO DE FACTURA, DE LO CONTRARIO SOLO SE CREARAN DETALLES
 
-                if (txtIdFactura.Enabled)
+                if (crearFactura_permitido)
                 {
                     NuevaFacturaObj objNFac = new NuevaFacturaObj();
 
@@ -239,11 +292,14 @@ namespace PuntoDeVentas
                     if (respuestaNuevaFactura.Equals("OK"))
                     {
                         MensajeOk("Se inserto de forma correcta la factura");
+                        crearFactura_permitido = false;
                     }
                     else
                     {
                         MensajeError(respuestaNuevaFactura);
                     }
+
+                    
 
                 }
 
@@ -264,6 +320,7 @@ namespace PuntoDeVentas
                 if (respuestaDetalleFactura.Equals("OK"))
                 {
                     MensajeOk("Se agrego de forma correcta el producto");
+                    extraer_ultimo_id_detalle();
                     listarDetalles();
                 }
                 else
@@ -345,9 +402,12 @@ namespace PuntoDeVentas
                 {
                     MessageBox.Show("FACTURA GUARDADA CON EXITO");
                     limpiar();
-                    txtIdFactura.Enabled = true;
-                    txtIdFactura.Text = (int.Parse(txtIdFactura.Text)+1).ToString();
+                    /*txtIdFactura.Enabled = true;
+                    txtIdFactura.Text = (int.Parse(txtIdFactura.Text)+1).ToString();*/
+
+                    extraer_ultimo_id_Factura();
                     listarDetalles();
+                    crearFactura_permitido = true;
                 }
                 else
                 {
@@ -378,15 +438,20 @@ namespace PuntoDeVentas
                 if (Opcion == DialogResult.OK)
                 {
                     detalleFacturaSql us = new detalleFacturaSql();
+
+                    totalFacturaVolatil -= decimal.Parse(datagridDetalles.CurrentRow.Cells["subtotal"].Value.ToString());
+                    txtTotalFactura.Text = totalFacturaVolatil.ToString();
+
+                    respuesta = us.EliminarProducto(int.Parse(datagridDetalles.CurrentRow.Cells["id_detalle"].Value.ToString()));
                     
-                    respuesta = us.EliminarProducto(int.Parse(txtIdDetalle.Text));
-                    
+
+
                 }
 
                 if (respuesta.Equals("OK"))
                 {
                     MensajeOk("Se elimino de forma correcta el producto");
-
+                    extraer_ultimo_id_detalle();
                     listarDetalles();
                 }
                 else
@@ -419,6 +484,7 @@ namespace PuntoDeVentas
                     detalleFacturaSql us = new detalleFacturaSql();
                     respuesta = us.VaciarDetalles(int.Parse(txtIdFactura.Text));
                     listarDetalles();
+                    extraer_ultimo_id_detalle();
                     totalFacturaVolatil = 0;
                     txtTotalFactura.Text = totalFacturaVolatil.ToString();
                 }
@@ -426,11 +492,13 @@ namespace PuntoDeVentas
                 if (respuesta.Equals("OK"))
                 {
                     MensajeOk("Se vacio correctamente el detalle de factura.");
+                    
                     listarDetalles();
                 }
                 else
                 {
                     MensajeError(respuesta);
+                    
                 }
             }
             catch (Exception ex)
@@ -461,7 +529,9 @@ namespace PuntoDeVentas
                 if (respuesta.Equals("OK"))
                 {
                     MensajeOk("Se elimino el registro de factura correctamente!");
-                    
+                    crearFactura_permitido = true;
+                    extraer_ultimo_id_Factura();
+                    extraer_ultimo_id_detalle();
                 }
                 else
                 {

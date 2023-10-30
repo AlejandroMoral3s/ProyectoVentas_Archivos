@@ -189,5 +189,33 @@ namespace PuntoDeVentas
             return respuesta;
         }
 
+        public string ultimoId_nuevoFactura()
+        {
+
+            string respuesta = "";
+
+            SqlConnection con = new SqlConnection();
+            try
+            {
+                string sql = "Select max(id_factura) from Factura";
+
+                con = Conexion.crearInstancia().crearConexion();
+                SqlCommand comando = new SqlCommand(sql, con);
+                con.Open();
+                respuesta = comando.ExecuteScalar().ToString();
+
+            }
+            catch (Exception ex)
+            {
+                respuesta += ex.Message;
+            }
+            finally
+            {
+                if (con.State == ConnectionState.Open) con.Close();
+            }
+            return respuesta;
+        }
+
+
     }
 }

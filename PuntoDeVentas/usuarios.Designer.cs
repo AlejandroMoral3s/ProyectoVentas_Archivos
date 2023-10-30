@@ -92,6 +92,7 @@
             // 
             // txtIdUsuario
             // 
+            this.txtIdUsuario.Enabled = false;
             this.txtIdUsuario.Location = new System.Drawing.Point(164, 115);
             this.txtIdUsuario.Name = "txtIdUsuario";
             this.txtIdUsuario.Size = new System.Drawing.Size(113, 20);

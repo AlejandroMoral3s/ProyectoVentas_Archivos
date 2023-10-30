@@ -119,9 +119,10 @@
             // 
             // txtId
             // 
+            this.txtId.Enabled = false;
             this.txtId.Location = new System.Drawing.Point(230, 97);
             this.txtId.Name = "txtId";
-            this.txtId.Size = new System.Drawing.Size(268, 20);
+            this.txtId.Size = new System.Drawing.Size(87, 20);
             this.txtId.TabIndex = 8;
             // 
             // btnLimpiar

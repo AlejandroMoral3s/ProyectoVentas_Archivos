@@ -13,6 +13,9 @@ namespace PuntoDeVentas
 {
     public partial class perfiles : Form
     {
+
+        int idActual = 0;
+
         public perfiles()
         {
             InitializeComponent();
@@ -47,9 +50,36 @@ namespace PuntoDeVentas
         }
 
 
+        //NUEVA IMPLEMENTACION PARA TODAS
+        private void extraer_ultimo_id()
+        {
+
+            perfilesSql ps = new perfilesSql();
+
+            string indiceVolatil = ps.ultimoId_perfil();
+
+            
+
+            if (indiceVolatil.Equals(""))
+            {
+                idActual = 1;
+
+                txtId.Text = idActual.ToString();
+            }
+            else
+            {
+                idActual = int.Parse(indiceVolatil) + 1;
+                txtId.Text = idActual.ToString();
+            }
+
+        }
+
 
         private void perfiles_Load(object sender, EventArgs e)
         {
+
+            //NUEVA IMPLEMENTACION AQUI TAMBIEN
+            extraer_ultimo_id();
             listar();
             formato();
         }
@@ -91,10 +121,14 @@ namespace PuntoDeVentas
                 perfilesSql ps = new perfilesSql();
                 respuesta = ps.Insertar(obj);
 
+
                 if (respuesta.Equals("OK"))
                 {
                     MensajeOk("Se inserto de forma correcta el registro");
                     limpiar();
+
+                    extraer_ultimo_id();
+
                     listar();
                 }
                 else
@@ -174,6 +208,8 @@ namespace PuntoDeVentas
                 {
                     MensajeOk("Se actualizo de forma correcta el registro");
                     limpiar();
+
+                    extraer_ultimo_id();
                     listar();
                 }
                 else
@@ -195,13 +231,6 @@ namespace PuntoDeVentas
             try
             {
 
-                if (txtId.Text == string.Empty)
-                {
-                    MensajeError("Falta llenar algunos cuadros de informacion.");
-                    error.SetError(txtId, "Ingrese el id");
-                    return;
-                }
-
                 DialogResult Opcion;
                 string respuesta = "";
                 Opcion = MessageBox.Show("Esta seguro de eliminar este registro permanentemente?", "Registros",MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
@@ -211,13 +240,14 @@ namespace PuntoDeVentas
                 if (Opcion == DialogResult.OK)
                 {
                     perfilesSql ps = new perfilesSql();
-                    respuesta = ps.Eliminar(int.Parse(txtId.Text));
+                    respuesta = ps.Eliminar(int.Parse(dataPerfiles.CurrentRow.Cells["id_perfil"].Value.ToString()));
                 }
 
                 if (respuesta.Equals("OK"))
                 {
                     MensajeOk("Se elimino de forma correcta el registro");
                     limpiar();
+                    extraer_ultimo_id();
                     listar();
                 }
                 else

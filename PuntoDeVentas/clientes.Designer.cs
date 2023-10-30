@@ -328,6 +328,7 @@
             // 
             // txtIdCliente
             // 
+            this.txtIdCliente.Enabled = false;
             this.txtIdCliente.Location = new System.Drawing.Point(154, 110);
             this.txtIdCliente.Name = "txtIdCliente";
             this.txtIdCliente.Size = new System.Drawing.Size(113, 20);

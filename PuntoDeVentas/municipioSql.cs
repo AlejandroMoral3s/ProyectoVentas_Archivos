@@ -48,7 +48,7 @@ namespace PuntoDeVentas
             SqlConnection con = new SqlConnection();
             try
             {
-                string sql = "Select * from Municipio";
+                string sql = "Select * from Municipio where id_municipio > 1";
                 con = Conexion.crearInstancia().crearConexion();
                 SqlCommand comando = new SqlCommand(sql, con);
                 con.Open();
@@ -144,6 +144,34 @@ namespace PuntoDeVentas
             }
             return respuesta;
         }
+
+        public string ultimoId_Municipio()
+        {
+
+            string respuesta = "";
+
+            SqlConnection con = new SqlConnection();
+            try
+            {
+                string sql = "Select max(id_municipio) from Municipio";
+
+                con = Conexion.crearInstancia().crearConexion();
+                SqlCommand comando = new SqlCommand(sql, con);
+                con.Open();
+                respuesta = comando.ExecuteScalar().ToString();
+
+            }
+            catch (Exception ex)
+            {
+                respuesta += ex.Message;
+            }
+            finally
+            {
+                if (con.State == ConnectionState.Open) con.Close();
+            }
+            return respuesta;
+        }
+
 
     }
 }

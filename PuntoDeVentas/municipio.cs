@@ -12,6 +12,9 @@ namespace PuntoDeVentas
 {
     public partial class municipio : Form
     {
+
+        int idActual = 0;
+
         public municipio()
         {
             InitializeComponent();
@@ -19,8 +22,32 @@ namespace PuntoDeVentas
 
         private void municipio_Load(object sender, EventArgs e)
         {
+            extraer_ultimo_id();
             listar();
             formato();
+        }
+
+        private void extraer_ultimo_id()
+        {
+
+            municipioSql ps = new municipioSql();
+
+            string indiceVolatil = ps.ultimoId_Municipio();
+
+
+
+            if (indiceVolatil.Equals(""))
+            {
+                idActual = 1;
+
+                txtId.Text = idActual.ToString();
+            }
+            else
+            {
+                idActual = int.Parse(indiceVolatil) + 1;
+                txtId.Text = idActual.ToString();
+            }
+
         }
 
         private void listar()
@@ -111,6 +138,7 @@ namespace PuntoDeVentas
                 {
                     MensajeOk("Se inserto de forma correcta el registro");
                     limpiar();
+                    extraer_ultimo_id();
                     listar();
                 }
                 else
@@ -164,6 +192,7 @@ namespace PuntoDeVentas
                 {
                     MensajeOk("Se actualizo de forma correcta el registro");
                     limpiar();
+                    extraer_ultimo_id();
                     listar();
                 }
                 else
@@ -201,13 +230,14 @@ namespace PuntoDeVentas
                 if (Opcion == DialogResult.OK)
                 {
                     municipioSql ms = new municipioSql();
-                    respuesta = ms.Eliminar(int.Parse(txtId.Text));
+                    respuesta = ms.Eliminar(int.Parse(dataMunicipios.CurrentRow.Cells["id_municipio"].Value.ToString()));
                 }
 
                 if (respuesta.Equals("OK"))
                 {
                     MensajeOk("Se elimino de forma correcta el registro");
                     limpiar();
+                    extraer_ultimo_id();
                     listar();
                 }
                 else

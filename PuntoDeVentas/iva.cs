@@ -12,9 +12,35 @@ namespace PuntoDeVentas
 {
     public partial class iva : Form
     {
+
+        int idActual = 0;
+
         public iva()
         {
             InitializeComponent();
+        }
+
+        private void extraer_ultimo_id()
+        {
+
+            ivaSql ps = new ivaSql();
+
+            string indiceVolatil = ps.ultimoId_Iva();
+
+
+
+            if (indiceVolatil.Equals(""))
+            {
+                idActual = 1;
+
+                txtId.Text = idActual.ToString();
+            }
+            else
+            {
+                idActual = int.Parse(indiceVolatil) + 1;
+                txtId.Text = idActual.ToString();
+            }
+
         }
 
         private void listar()
@@ -71,6 +97,7 @@ namespace PuntoDeVentas
 
         private void iva_Load(object sender, EventArgs e)
         {
+            extraer_ultimo_id();
             listar();
             formato();
         }
@@ -110,6 +137,7 @@ namespace PuntoDeVentas
                 {
                     MensajeOk("Se inserto de forma correcta el registro");
                     limpiar();
+                    extraer_ultimo_id();
                     listar();
                 }
                 else
@@ -162,6 +190,7 @@ namespace PuntoDeVentas
                 {
                     MensajeOk("Se actualizo de forma correcta el registro");
                     limpiar();
+                    extraer_ultimo_id();
                     listar();
                 }
                 else
@@ -182,13 +211,6 @@ namespace PuntoDeVentas
             try
             {
 
-                if (txtId.Text == string.Empty)
-                {
-                    MensajeError("Falta llenar algunos cuadros de informacion.");
-                    error.SetError(txtId, "Ingrese el id");
-                    return;
-                }
-
                 DialogResult Opcion;
                 string respuesta = "";
                 Opcion = MessageBox.Show("Esta seguro de eliminar este registro permanentemente?", "Registros", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
@@ -198,13 +220,14 @@ namespace PuntoDeVentas
                 if (Opcion == DialogResult.OK)
                 {
                     ivaSql ps = new ivaSql();
-                    respuesta = ps.Eliminar(int.Parse(txtId.Text));
+                    respuesta = ps.Eliminar(int.Parse(dataIva.CurrentRow.Cells["id_iva"].Value.ToString()));
                 }
 
                 if (respuesta.Equals("OK"))
                 {
                     MensajeOk("Se elimino de forma correcta el registro");
                     limpiar();
+                    extraer_ultimo_id();
                     listar();
                 }
                 else

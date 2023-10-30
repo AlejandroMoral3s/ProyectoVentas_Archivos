@@ -12,6 +12,9 @@ namespace PuntoDeVentas
 {
     public partial class usuarios : Form
     {
+
+        int idActual = 0;
+
         public usuarios()
         {
             InitializeComponent();
@@ -19,9 +22,33 @@ namespace PuntoDeVentas
 
         private void usuarios_Load(object sender, EventArgs e)
         {
+            extraer_ultimo_id();
             listarPerfiles();
             listarUsuarios();
             formato();
+        }
+
+        private void extraer_ultimo_id()
+        {
+
+            usuariosSql ps = new usuariosSql();
+
+            string indiceVolatil = ps.ultimoId_Usuario();
+
+
+
+            if (indiceVolatil.Equals(""))
+            {
+                idActual = 1;
+
+                txtIdUsuario.Text = idActual.ToString();
+            }
+            else
+            {
+                idActual = int.Parse(indiceVolatil) + 1;
+                txtIdUsuario.Text = idActual.ToString();
+            }
+
         }
 
         // METODOS PARA LISTAR PERFILES Y USUARIOS EN DATAGRID
@@ -198,6 +225,7 @@ namespace PuntoDeVentas
                 {
                     MensajeOk("Se inserto de forma correcta el registro");
                     limpiar();
+                    extraer_ultimo_id();
                     listarUsuarios();
                 }
                 else
@@ -344,6 +372,7 @@ namespace PuntoDeVentas
                 {
                     MensajeOk("Se actualizo de forma correcta el registro");
                     limpiar();
+                    extraer_ultimo_id();
                     listarUsuarios();
                 }
                 else
@@ -365,13 +394,6 @@ namespace PuntoDeVentas
             try
             {
 
-                if (txtIdUsuario.Text == string.Empty)
-                {
-                    MensajeError("Falta llenar algunos cuadros de informacion.");
-                    error.SetError(txtIdUsuario, "Ingrese el idUsuario");
-                    return;
-                }
-
                 DialogResult Opcion;
                 string respuesta = "";
                 Opcion = MessageBox.Show("Esta seguro de eliminar este registro permanentemente?", "Registros", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
@@ -381,13 +403,14 @@ namespace PuntoDeVentas
                 if (Opcion == DialogResult.OK)
                 {
                     usuariosSql us = new usuariosSql();
-                    respuesta = us.Eliminar(int.Parse(txtIdUsuario.Text));
+                    respuesta = us.Eliminar(int.Parse(datagridUsuarios.CurrentRow.Cells["id_usuario"].Value.ToString()));
                 }
 
                 if (respuesta.Equals("OK"))
                 {
                     MensajeOk("Se elimino de forma correcta el registro");
                     limpiar();
+                    extraer_ultimo_id();
                     listarUsuarios();
                 }
                 else

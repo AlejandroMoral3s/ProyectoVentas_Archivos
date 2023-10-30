@@ -12,10 +12,37 @@ namespace PuntoDeVentas
 {
     public partial class documento : Form
     {
+
+        int idActual = 0;
+
         public documento()
         {
             InitializeComponent();
         }
+
+        private void extraer_ultimo_id()
+        {
+
+            documentoSql ps = new documentoSql();
+
+            string indiceVolatil = ps.ultimoId_Documento();
+
+
+
+            if (indiceVolatil.Equals(""))
+            {
+                idActual = 1;
+
+                txtId.Text = idActual.ToString();
+            }
+            else
+            {
+                idActual = int.Parse(indiceVolatil) + 1;
+                txtId.Text = idActual.ToString();
+            }
+
+        }
+
 
         private void listar()
         {
@@ -53,6 +80,7 @@ namespace PuntoDeVentas
 
         private void documento_Load(object sender, EventArgs e)
         {
+            extraer_ultimo_id();
             listar();
             formato();
         }
@@ -115,6 +143,7 @@ namespace PuntoDeVentas
                 {
                     MensajeOk("Se inserto de forma correcta el registro");
                     limpiar();
+                    extraer_ultimo_id();
                     listar();
                 }
                 else
@@ -167,6 +196,7 @@ namespace PuntoDeVentas
                 {
                     MensajeOk("Se actualizo de forma correcta el registro");
                     limpiar();
+                    extraer_ultimo_id();
                     listar();
                 }
                 else
@@ -187,12 +217,6 @@ namespace PuntoDeVentas
             try
             {
 
-                if (txtId.Text == string.Empty)
-                {
-                    MensajeError("Falta llenar algunos cuadros de informacion.");
-                    error.SetError(txtId, "Ingrese el id");
-                    return;
-                }
 
                 DialogResult Opcion;
                 string respuesta = "";
@@ -203,13 +227,14 @@ namespace PuntoDeVentas
                 if (Opcion == DialogResult.OK)
                 {
                     documentoSql ps = new documentoSql();
-                    respuesta = ps.Eliminar(int.Parse(txtId.Text));
+                    respuesta = ps.Eliminar(int.Parse(txtId.Text = dataDocumentos.CurrentRow.Cells["id_documento"].Value.ToString()));
                 }
 
                 if (respuesta.Equals("OK"))
                 {
                     MensajeOk("Se elimino de forma correcta el registro");
                     limpiar();
+                    extraer_ultimo_id();
                     listar();
                 }
                 else

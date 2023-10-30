@@ -12,6 +12,9 @@ namespace PuntoDeVentas
 {
     public partial class productos : Form
     {
+
+        int idActual = 0;
+
         public productos()
         {
             InitializeComponent();
@@ -19,10 +22,35 @@ namespace PuntoDeVentas
 
         private void productos_Load(object sender, EventArgs e)
         {
+            extraer_ultimo_id();
             listarProductos();
             listarIvas();
             formato();
         }
+
+        private void extraer_ultimo_id()
+        {
+
+            productosSql ps = new productosSql();
+
+            string indiceVolatil = ps.ultimoId_Producto();
+
+
+
+            if (indiceVolatil.Equals(""))
+            {
+                idActual = 1;
+
+                txtIdProducto.Text = idActual.ToString();
+            }
+            else
+            {
+                idActual = int.Parse(indiceVolatil) + 1;
+                txtIdProducto.Text = idActual.ToString();
+            }
+
+        }
+
 
         private void listarIvas()
         {
@@ -179,6 +207,7 @@ namespace PuntoDeVentas
                 {
                     MensajeOk("Se inserto de forma correcta el registro");
                     limpiar();
+                    extraer_ultimo_id();
                     listarProductos();
                 }
                 else
@@ -250,6 +279,7 @@ namespace PuntoDeVentas
                 {
                     MensajeOk("Se actualizo de forma correcta el registro");
                     limpiar();
+                    extraer_ultimo_id();
                     listarProductos();
                 }
                 else
@@ -270,13 +300,6 @@ namespace PuntoDeVentas
             try
             {
 
-                if (txtIdProducto.Text == string.Empty)
-                {
-                    MensajeError("Falta llenar algunos cuadros de informacion.");
-                    error.SetError(txtIdProducto, "Ingrese el id_producto");
-                    return;
-                }
-
                 DialogResult Opcion;
                 string respuesta = "";
                 Opcion = MessageBox.Show("Esta seguro de eliminar este registro permanentemente?", "Registros", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
@@ -286,13 +309,14 @@ namespace PuntoDeVentas
                 if (Opcion == DialogResult.OK)
                 {
                     productosSql us = new productosSql();
-                    respuesta = us.Eliminar(int.Parse(txtIdProducto.Text));
+                    respuesta = us.Eliminar(int.Parse(datagridProductos.CurrentRow.Cells["id_producto"].Value.ToString()));
                 }
 
                 if (respuesta.Equals("OK"))
                 {
                     MensajeOk("Se elimino de forma correcta el registro");
                     limpiar();
+                    extraer_ultimo_id();
                     listarProductos();
                 }
                 else

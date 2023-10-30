@@ -171,6 +171,7 @@
             // 
             // txtIdFactura
             // 
+            this.txtIdFactura.Enabled = false;
             this.txtIdFactura.Location = new System.Drawing.Point(420, 134);
             this.txtIdFactura.Name = "txtIdFactura";
             this.txtIdFactura.Size = new System.Drawing.Size(113, 20);
@@ -425,6 +426,7 @@
             // 
             // txtIdDetalle
             // 
+            this.txtIdDetalle.Enabled = false;
             this.txtIdDetalle.Location = new System.Drawing.Point(135, 103);
             this.txtIdDetalle.Name = "txtIdDetalle";
             this.txtIdDetalle.Size = new System.Drawing.Size(113, 20);

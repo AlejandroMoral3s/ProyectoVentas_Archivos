@@ -12,6 +12,9 @@ namespace PuntoDeVentas
 {
     public partial class Clientes : Form
     {
+
+        int idActual = 0;
+
         public Clientes()
         {
             InitializeComponent();
@@ -21,9 +24,32 @@ namespace PuntoDeVentas
 
         private void Clientes_Load(object sender, EventArgs e)
         {
-
+            extraer_ultimo_id();
             listar_General();
             formato();
+        }
+
+        private void extraer_ultimo_id()
+        {
+
+            clientesSql ps = new clientesSql();
+
+            string indiceVolatil = ps.ultimoId_Cliente();
+
+
+
+            if (indiceVolatil.Equals(""))
+            {
+                idActual = 1;
+
+                txtIdCliente.Text = idActual.ToString();
+            }
+            else
+            {
+                idActual = int.Parse(indiceVolatil) + 1;
+                txtIdCliente.Text = idActual.ToString();
+            }
+
         }
 
         private void listar_General()
@@ -241,6 +267,7 @@ namespace PuntoDeVentas
                 {
                     MensajeOk("Se inserto de forma correcta el registro");
                     limpiar();
+                    extraer_ultimo_id();
                     listar_General();
                 }
                 else
@@ -346,6 +373,7 @@ namespace PuntoDeVentas
                 {
                     MensajeOk("Se actualizo de forma correcta el registro");
                     limpiar();
+                    extraer_ultimo_id();
                     listar_General();
                 }
                 else
@@ -368,12 +396,7 @@ namespace PuntoDeVentas
             try
             {
 
-                if (txtIdCliente.Text == string.Empty)
-                {
-                    MensajeError("Falta llenar algunos cuadros de informacion.");
-                    error.SetError(txtIdCliente, "Ingrese el id_Cliente");
-                    return;
-                }
+                
 
                 DialogResult Opcion;
                 string respuesta = "";
@@ -384,13 +407,14 @@ namespace PuntoDeVentas
                 if (Opcion == DialogResult.OK)
                 {
                     clientesSql us = new clientesSql();
-                    respuesta = us.Eliminar(int.Parse(txtIdCliente.Text));
+                    respuesta = us.Eliminar(int.Parse(datagridClientes.CurrentRow.Cells["id_cliente"].Value.ToString()));
                 }
 
                 if (respuesta.Equals("OK"))
                 {
                     MensajeOk("Se elimino de forma correcta el registro");
                     limpiar();
+                    extraer_ultimo_id();
                     listar_General();
                 }
                 else

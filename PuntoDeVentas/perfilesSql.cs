@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Drawing.Printing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace PuntoDeVentas
 {
@@ -67,19 +69,55 @@ namespace PuntoDeVentas
             }
         }
 
+
+        //DEVOLVER EL ID del ultimo registro DE LA TABLA PERFIL
+
+        public string ultimoId_perfil()
+        {
+
+            string respuesta = "";
+
+            SqlConnection con = new SqlConnection();
+            try {
+                string sql = "Select max(id_perfil) from Perfil";
+
+                con = Conexion.crearInstancia().crearConexion();
+                SqlCommand comando = new SqlCommand( sql, con);
+                con.Open();
+                respuesta = comando.ExecuteScalar().ToString();
+
+            }
+            catch (Exception ex)
+            {
+                respuesta += ex.Message;
+            }
+            finally
+            {
+                if (con.State == ConnectionState.Open) con.Close();
+            }
+            return respuesta;
+        }
+
+
         //INSERTAR NUEVOS REGISTROS
+
 
         public string Insertar(perfilesObj obj)
         {
             string respuesta = "";
+
             SqlConnection con = new SqlConnection();
             try
             {
                 string sql = "Insert into Perfil (id_perfil, nombre) values ("+"'"+obj.id+"'," + "'"+obj.nombre+"')";
+
+                
                 con = Conexion.crearInstancia().crearConexion();
                 SqlCommand comando = new SqlCommand(sql, con);
+
                 con.Open();
                 respuesta = comando.ExecuteNonQuery() == 1 ? "OK":"No se pudo ingresar el registro";
+
 
             }
             catch (Exception ex)
