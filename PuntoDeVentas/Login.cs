@@ -12,8 +12,7 @@ namespace PuntoDeVentas
 {
     public partial class Login : Form
     {
-        menuPrincipal menu = new menuPrincipal();
-        private bool inicio, admin,primeraVez=true;
+        private bool inicio, admin;
         public Login()
         {
             InitializeComponent();
@@ -37,15 +36,6 @@ namespace PuntoDeVentas
         {
             return admin;
         }
-        public void setPrimeraVez(bool primeraVez)
-        {
-            this.primeraVez = primeraVez;
-        }
-
-        public bool getPrimeraVez()
-        {
-            return primeraVez;
-        }
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
@@ -63,14 +53,12 @@ namespace PuntoDeVentas
                 this.Close();
                 setInicio(true);
                 setAdmin(true);
-                setPrimeraVez(false);
             }
             else if (indiceVolatil.Equals("2"))
             {
                 this.Close();
                 setInicio(true);
                 setAdmin(false);    
-                setPrimeraVez(false);
             }
             else
             {

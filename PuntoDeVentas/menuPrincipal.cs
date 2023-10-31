@@ -57,8 +57,7 @@ namespace PuntoDeVentas
         private void opcion_cambiarUsuario_Click(object sender, EventArgs e)
         {
             Login ventanaLogin = new Login();
-            menuBar.Visible = ventanaLogin.getInicio();
-            panelPrincipal.Visible = ventanaLogin.getInicio();
+            setConfig(ventanaLogin.getInicio(), ventanaLogin.getAdmin());
             ventanaLogin.ShowDialog();
             setConfig(ventanaLogin.getInicio(), ventanaLogin.getAdmin());
         }
