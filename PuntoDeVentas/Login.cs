@@ -18,33 +18,18 @@ namespace PuntoDeVentas
             InitializeComponent();
         }
 
-        public void setInicio(bool inicio)
-        {
-            this.inicio = inicio;   
-        }
+        public void setInicio(bool inicio) => this.inicio = inicio;
 
-        public bool getInicio()
-        {
-            return inicio;
-        }
-        public void setAdmin(bool admin)
-        {
-            this.admin = admin;
-        }
+        public bool getInicio() => inicio;
 
-        public bool getAdmin()
-        {
-            return admin;
-        }
+        public void setAdmin(bool admin) => this.admin = admin;
 
-        private void btnSalir_Click(object sender, EventArgs e)
-        {
-            Application.Exit(); 
-        }
+        public bool getAdmin() => admin;
+
+        private void btnSalir_Click(object sender, EventArgs e) => Application.Exit();
 
         private void btnIngresar_Click(object sender, EventArgs e)
         {
-
             LoginSql ps = new LoginSql();
 
             string indiceVolatil = ps.checklogin(txtUser.Text, txtClave.Text);
