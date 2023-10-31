@@ -14,6 +14,7 @@ namespace PuntoDeVentas
 {
     public partial class menuPrincipal : Form
     {
+
         public menuPrincipal()
         {
             InitializeComponent();
@@ -55,7 +56,11 @@ namespace PuntoDeVentas
 
         private void opcion_cambiarUsuario_Click(object sender, EventArgs e)
         {
-            
+            Login ventanaLogin = new Login();
+            menuBar.Visible = ventanaLogin.getInicio();
+            panelPrincipal.Visible = ventanaLogin.getInicio();
+            ventanaLogin.ShowDialog();
+            setConfig(ventanaLogin.getInicio(), ventanaLogin.getAdmin());
         }
 
         private void opcion_nuevaFactura_Click(object sender, EventArgs e)
@@ -91,6 +96,30 @@ namespace PuntoDeVentas
         private void subopcion_perfiles_Click(object sender, EventArgs e)
         {
             abrirFormulario(new perfiles());
+        }
+
+        private void menuBar_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+        public void setConfig(bool inicio, bool admin)
+        {
+            menuBar.Visible = inicio;
+            panelPrincipal.Visible = inicio;
+            opcion_usuarios.Visible = admin;
+            opcion_reportes.Visible = admin;
+        }
+
+        private void menuPrincipal_Load(object sender, EventArgs e)
+        {
+            Login ventanaLogin = new Login();
+            ventanaLogin.ShowDialog();
+            setConfig(ventanaLogin.getInicio(), ventanaLogin.getAdmin());
+        }
+
+        private void opcion_Salir_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

@@ -22,9 +22,9 @@ namespace PuntoDeVentas
         private Conexion()
         {
             this.Base = "Punto_Ventas";
-            this.servidor = "LAPTOP-55SN3IUO";
-            this.usuario = "sa";
-            this.clave = "123";
+            this.servidor = "Amarielos";
+            this.usuario = "";
+            this.clave = "";
             this.seguridad = true;
         }
 
