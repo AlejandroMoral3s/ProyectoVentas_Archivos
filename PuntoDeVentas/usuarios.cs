@@ -429,5 +429,10 @@ namespace PuntoDeVentas
             txtIdPerfil.Clear();
             txtIdPerfil.Text = datagridPerfil.CurrentRow.Cells["id_perfil"].Value.ToString(); 
         }
+
+        private void btnPrimero_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 }
