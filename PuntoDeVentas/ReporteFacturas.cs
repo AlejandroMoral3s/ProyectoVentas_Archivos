@@ -127,7 +127,7 @@ namespace PuntoDeVentas
             //EMPIEZA LA CREACION DEL DOCUMENTO DINAMICO
             Document doc = new Document();
 
-            PdfWriter writer = PdfWriter.GetInstance(doc, new FileStream(@"C:\Users\Alejandro Morales\Desktop\ProyectoArchivosPdf\prueba.pdf", FileMode.Create));
+            PdfWriter writer = PdfWriter.GetInstance(doc, new FileStream(@"D:\U\archivos\proyectos\proyecto3\prueba.pdf", FileMode.Create));
 
             doc.AddTitle("REPORTES DE FACTURACION XD");
 
