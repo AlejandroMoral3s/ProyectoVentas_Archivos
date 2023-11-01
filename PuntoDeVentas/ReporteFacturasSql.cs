@@ -17,7 +17,7 @@ namespace PuntoDeVentas
             DataTable Tabla = new DataTable();
             SqlConnection con = new SqlConnection();
             try
-            {
+            { // f.id_usuario  -->> convertir a -- >> select ( concat(nombre, ' ', apellido)) from Usuario) as id_producto
                 string sql = "select f.id_factura, f.id_usuario, f.fecha_emision, f.id_cliente, f.total_factura " +
                     "from Factura f join Cliente c on f.id_cliente = c.id_cliente where c.nit_cliente = '"+nit+"'";
                 
