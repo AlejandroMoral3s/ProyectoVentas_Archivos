@@ -92,7 +92,7 @@
             // 
             // btnPdf
             // 
-            this.btnPdf.Location = new System.Drawing.Point(350, 701);
+            this.btnPdf.Location = new System.Drawing.Point(774, 448);
             this.btnPdf.Name = "btnPdf";
             this.btnPdf.Size = new System.Drawing.Size(101, 34);
             this.btnPdf.TabIndex = 5;
@@ -166,7 +166,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1345, 768);
+            this.ClientSize = new System.Drawing.Size(1008, 768);
             this.Controls.Add(this.dataDetalles);
             this.Controls.Add(this.txtFecha);
             this.Controls.Add(this.btnFiltrarProducto);
