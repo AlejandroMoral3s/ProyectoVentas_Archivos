@@ -14,6 +14,7 @@ namespace PuntoDeVentas
     {
 
         int idActual = 0;
+        Validaciones check = new Validaciones();
 
         public documento()
         {
@@ -87,6 +88,7 @@ namespace PuntoDeVentas
 
         private void limpiar()
         {
+            error.Clear();
             txtId.Clear();
             txtTipo.Clear();
             txtBuscar.Clear();
@@ -115,6 +117,7 @@ namespace PuntoDeVentas
 
         private void btnCrear_Click(object sender, EventArgs e)
         {
+            Validaciones check = new Validaciones();    
             try
             {
                 string respuesta = "";

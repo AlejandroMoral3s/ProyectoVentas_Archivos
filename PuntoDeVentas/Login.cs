@@ -13,29 +13,23 @@ namespace PuntoDeVentas
     public partial class Login : Form
     {
         private bool inicio, admin;
+        private string id_usuario;
         public Login()
         {
             InitializeComponent();
         }
 
-        public void setInicio(bool inicio)
-        {
-            this.inicio = inicio;   
-        }
+        public void setInicio(bool inicio) => this.inicio = inicio;
 
-        public bool getInicio()
-        {
-            return inicio;
-        }
-        public void setAdmin(bool admin)
-        {
-            this.admin = admin;
-        }
+        public bool getInicio() => inicio;
 
-        public bool getAdmin()
-        {
-            return admin;
-        }
+        public void setAdmin(bool admin) => this.admin = admin;
+
+        public bool getAdmin() => admin;
+
+        public void setIdUsuario(string id_usuario) => this.id_usuario = id_usuario;
+
+        public string getIdUsuario() => id_usuario;
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
@@ -48,17 +42,20 @@ namespace PuntoDeVentas
             LoginSql ps = new LoginSql();
 
             string indiceVolatil = ps.checklogin(txtUser.Text, txtClave.Text);
+            string id_us = ps.getIdUsuario(txtUser.Text);
             if (indiceVolatil.Equals("1"))
             {
                 this.Close();
                 setInicio(true);
                 setAdmin(true);
+                setIdUsuario(id_us);
             }
             else if (indiceVolatil.Equals("2"))
             {
                 this.Close();
                 setInicio(true);
-                setAdmin(false);    
+                setAdmin(false);
+                setIdUsuario(id_us);
             }
             else
             {

@@ -14,6 +14,7 @@ namespace PuntoDeVentas
     {
 
         int idActual = 0;
+        Validaciones check = new Validaciones();    
 
         public usuarios()
         {
@@ -124,10 +125,6 @@ namespace PuntoDeVentas
             }
         }
 
-
-
-
-
         private void btnBuscarPerfil_Click(object sender, EventArgs e)
         {
             buscarPerfil();
@@ -142,6 +139,7 @@ namespace PuntoDeVentas
 
         private void btnCrear_Click(object sender, EventArgs e)
         {
+            error.Clear();
             try
             {
                 string respuesta = "";
@@ -200,6 +198,18 @@ namespace PuntoDeVentas
                 {
                     MensajeError("Falta llenar algunos cuadros de informacion.");
                     error.SetError(txtConfirmacion, "Ingrese la Confirmacion de clave");
+                    return;
+                }
+                if (!txtClave.Text.Equals(txtConfirmacion.Text))
+                {
+                    MensajeError("La clave y la confirmación no coinciden.");
+                    error.SetError(txtConfirmacion, "Ingrese la Confirmacion de clave");
+                    return;
+                }
+                if (check.esNum(txtTelefono.Text) != "int")
+                {
+                    MensajeError("El teléfono solo puede contener caracteres numéricos.");
+                    error.SetError(txtTelefono, "Ingrese el telefono");
                     return;
                 }
 

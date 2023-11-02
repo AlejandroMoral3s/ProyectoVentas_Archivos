@@ -48,9 +48,10 @@
             // 
             // btnEliminar
             // 
-            this.btnEliminar.Location = new System.Drawing.Point(462, 163);
+            this.btnEliminar.Location = new System.Drawing.Point(693, 251);
+            this.btnEliminar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(125, 32);
+            this.btnEliminar.Size = new System.Drawing.Size(188, 49);
             this.btnEliminar.TabIndex = 23;
             this.btnEliminar.Text = "BORRAR MUNICIPIO";
             this.btnEliminar.UseVisualStyleBackColor = true;
@@ -58,9 +59,10 @@
             // 
             // btnEditar
             // 
-            this.btnEditar.Location = new System.Drawing.Point(319, 163);
+            this.btnEditar.Location = new System.Drawing.Point(478, 251);
+            this.btnEditar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnEditar.Name = "btnEditar";
-            this.btnEditar.Size = new System.Drawing.Size(116, 32);
+            this.btnEditar.Size = new System.Drawing.Size(174, 49);
             this.btnEditar.TabIndex = 22;
             this.btnEditar.Text = "EDITAR MUNICIPIO";
             this.btnEditar.UseVisualStyleBackColor = true;
@@ -68,42 +70,48 @@
             // 
             // btnLimpiar
             // 
-            this.btnLimpiar.Location = new System.Drawing.Point(654, 398);
+            this.btnLimpiar.Location = new System.Drawing.Point(981, 612);
+            this.btnLimpiar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnLimpiar.Name = "btnLimpiar";
-            this.btnLimpiar.Size = new System.Drawing.Size(116, 32);
+            this.btnLimpiar.Size = new System.Drawing.Size(174, 49);
             this.btnLimpiar.TabIndex = 21;
             this.btnLimpiar.Text = "LIMPIAR CAMPOS";
             this.btnLimpiar.UseVisualStyleBackColor = true;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
             // txtId
             // 
             this.txtId.Enabled = false;
-            this.txtId.Location = new System.Drawing.Point(319, 79);
+            this.txtId.Location = new System.Drawing.Point(478, 122);
+            this.txtId.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtId.Name = "txtId";
-            this.txtId.Size = new System.Drawing.Size(116, 20);
+            this.txtId.Size = new System.Drawing.Size(172, 26);
             this.txtId.TabIndex = 20;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(165, 82);
+            this.label3.Location = new System.Drawing.Point(248, 126);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(80, 13);
+            this.label3.Size = new System.Drawing.Size(118, 20);
             this.label3.TabIndex = 19;
             this.label3.Text = "ID MUNICIPIO:";
             // 
             // txtBuscar
             // 
-            this.txtBuscar.Location = new System.Drawing.Point(168, 405);
+            this.txtBuscar.Location = new System.Drawing.Point(252, 623);
+            this.txtBuscar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtBuscar.Name = "txtBuscar";
-            this.txtBuscar.Size = new System.Drawing.Size(207, 20);
+            this.txtBuscar.Size = new System.Drawing.Size(308, 26);
             this.txtBuscar.TabIndex = 18;
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(392, 398);
+            this.btnBuscar.Location = new System.Drawing.Point(588, 612);
+            this.btnBuscar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(116, 32);
+            this.btnBuscar.Size = new System.Drawing.Size(174, 49);
             this.btnBuscar.TabIndex = 17;
             this.btnBuscar.Text = "BUSCAR";
             this.btnBuscar.UseVisualStyleBackColor = true;
@@ -112,17 +120,20 @@
             // dataMunicipios
             // 
             this.dataMunicipios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataMunicipios.Location = new System.Drawing.Point(168, 213);
+            this.dataMunicipios.Location = new System.Drawing.Point(252, 328);
+            this.dataMunicipios.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dataMunicipios.Name = "dataMunicipios";
-            this.dataMunicipios.Size = new System.Drawing.Size(438, 164);
+            this.dataMunicipios.RowHeadersWidth = 62;
+            this.dataMunicipios.Size = new System.Drawing.Size(657, 252);
             this.dataMunicipios.TabIndex = 16;
             this.dataMunicipios.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataMunicipios_CellDoubleClick);
             // 
             // btnCrear
             // 
-            this.btnCrear.Location = new System.Drawing.Point(168, 163);
+            this.btnCrear.Location = new System.Drawing.Point(252, 251);
+            this.btnCrear.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnCrear.Name = "btnCrear";
-            this.btnCrear.Size = new System.Drawing.Size(116, 32);
+            this.btnCrear.Size = new System.Drawing.Size(174, 49);
             this.btnCrear.TabIndex = 15;
             this.btnCrear.Text = "CREAR MUNICIPIO";
             this.btnCrear.UseVisualStyleBackColor = true;
@@ -130,26 +141,29 @@
             // 
             // txtNombre
             // 
-            this.txtNombre.Location = new System.Drawing.Point(319, 118);
+            this.txtNombre.Location = new System.Drawing.Point(478, 182);
+            this.txtNombre.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(268, 20);
+            this.txtNombre.Size = new System.Drawing.Size(400, 26);
             this.txtNombre.TabIndex = 14;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(165, 125);
+            this.label2.Location = new System.Drawing.Point(248, 192);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(131, 13);
+            this.label2.Size = new System.Drawing.Size(194, 20);
             this.label2.TabIndex = 13;
             this.label2.Text = "NOMBRE DE MUNICIPIO";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(334, 29);
+            this.label1.Location = new System.Drawing.Point(501, 45);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(70, 13);
+            this.label1.Size = new System.Drawing.Size(104, 20);
             this.label1.TabIndex = 12;
             this.label1.Text = "MUNICIPIOS";
             // 
@@ -159,9 +173,9 @@
             // 
             // municipio
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1200, 692);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.btnLimpiar);
@@ -174,6 +188,7 @@
             this.Controls.Add(this.txtNombre);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "municipio";
             this.Text = "municipio";
             this.Load += new System.EventHandler(this.municipio_Load);

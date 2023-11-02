@@ -14,6 +14,7 @@ namespace PuntoDeVentas
     {
 
         int idActual = 0;
+        Validaciones check = new Validaciones();    
 
         public iva()
         {
@@ -79,6 +80,7 @@ namespace PuntoDeVentas
 
         private void limpiar()
         {
+            error.Clear();
             txtId.Clear();
             txtPorcentaje.Clear();
             txtBuscar.Clear();
@@ -109,6 +111,7 @@ namespace PuntoDeVentas
 
         private void btnCrear_Click(object sender, EventArgs e)
         {
+            error.Clear();
             try
             {
                 string respuesta = "";
@@ -124,6 +127,12 @@ namespace PuntoDeVentas
                     error.SetError(txtPorcentaje, "Ingrese el porcentaje");
                     return;
                 }
+                if (check.esNum(txtPorcentaje.Text) == null){
+                    MensajeError("El porcentaje debe ser sun valor numérico.");
+                    error.SetError(txtPorcentaje, "Ingrese el porcentaje");
+                    return;
+                }
+
                 //GENERAR INSTANCIA A LA CLASE PERFILES
                 ivaObj obj = new ivaObj();
                 obj.id_iva = int.Parse(txtId.Text);
@@ -162,6 +171,7 @@ namespace PuntoDeVentas
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
+            error.Clear();
             try
             {
                 string respuesta = "";
@@ -174,6 +184,12 @@ namespace PuntoDeVentas
                 if (txtPorcentaje.Text == string.Empty)
                 {
                     MensajeError("Falta llenar algunos cuadros de informacion.");
+                    error.SetError(txtPorcentaje, "Ingrese el porcentaje");
+                    return;
+                }
+                if (check.esNum(txtPorcentaje.Text) == null)
+                {
+                    MensajeError("El porcentaje debe ser sun valor numérico.");
                     error.SetError(txtPorcentaje, "Ingrese el porcentaje");
                     return;
                 }
@@ -239,6 +255,11 @@ namespace PuntoDeVentas
             {
                 MessageBox.Show(ex.Message + ex.StackTrace);
             }
+        }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            limpiar();
         }
     }
 }

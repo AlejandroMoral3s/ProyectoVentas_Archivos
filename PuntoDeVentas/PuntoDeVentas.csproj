@@ -179,6 +179,7 @@
     </Compile>
     <Compile Include="usuariosObj.cs" />
     <Compile Include="usuariosSql.cs" />
+    <Compile Include="Validaciones.cs" />
     <EmbeddedResource Include="AcercaDe.resx">
       <DependentUpon>AcercaDe.cs</DependentUpon>
     </EmbeddedResource>

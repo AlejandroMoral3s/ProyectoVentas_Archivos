@@ -567,7 +567,6 @@
         private System.Windows.Forms.TextBox txtBuscarDocumento;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.DataGridView datagridDocumentos;
-        private System.Windows.Forms.TextBox txtIdDocumento;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox txtDireccion;
@@ -580,14 +579,12 @@
         private System.Windows.Forms.Label label5;
         public System.Windows.Forms.TextBox txtNit;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txtIdCliente;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.TextBox txtBuscarMunicipio;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.DataGridView datagridMunicipios;
-        private System.Windows.Forms.TextBox txtIdMunicipio;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.DateTimePicker calendarioNacimiento;
@@ -595,5 +592,8 @@
         private System.Windows.Forms.ErrorProvider error;
         private System.Windows.Forms.TextBox txtNoDocumento;
         private System.Windows.Forms.Label label15;
+        public System.Windows.Forms.TextBox txtIdDocumento;
+        public System.Windows.Forms.TextBox txtIdCliente;
+        public System.Windows.Forms.TextBox txtIdMunicipio;
     }
 }

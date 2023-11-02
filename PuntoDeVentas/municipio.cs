@@ -91,6 +91,7 @@ namespace PuntoDeVentas
 
         private void limpiar()
         {
+            error.Clear();
             txtId.Clear();
             txtNombre.Clear();
             txtBuscar.Clear();
@@ -110,6 +111,7 @@ namespace PuntoDeVentas
 
         private void btnCrear_Click(object sender, EventArgs e)
         {
+            error.Clear();
             try
             {
                 string respuesta = "";
@@ -163,7 +165,7 @@ namespace PuntoDeVentas
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-
+            error.Clear();
             try
             {
                 string respuesta = "";
@@ -249,6 +251,11 @@ namespace PuntoDeVentas
             {
                 MessageBox.Show(ex.Message + ex.StackTrace);
             }
+        }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            limpiar();
         }
     }
 }

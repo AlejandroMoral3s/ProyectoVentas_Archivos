@@ -48,9 +48,10 @@
             // 
             // btnEliminar
             // 
-            this.btnEliminar.Location = new System.Drawing.Point(449, 159);
+            this.btnEliminar.Location = new System.Drawing.Point(674, 245);
+            this.btnEliminar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(116, 32);
+            this.btnEliminar.Size = new System.Drawing.Size(174, 49);
             this.btnEliminar.TabIndex = 35;
             this.btnEliminar.Text = "BORRAR";
             this.btnEliminar.UseVisualStyleBackColor = true;
@@ -58,9 +59,10 @@
             // 
             // btnEditar
             // 
-            this.btnEditar.Location = new System.Drawing.Point(305, 159);
+            this.btnEditar.Location = new System.Drawing.Point(458, 245);
+            this.btnEditar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnEditar.Name = "btnEditar";
-            this.btnEditar.Size = new System.Drawing.Size(116, 32);
+            this.btnEditar.Size = new System.Drawing.Size(174, 49);
             this.btnEditar.TabIndex = 34;
             this.btnEditar.Text = "EDITAR";
             this.btnEditar.UseVisualStyleBackColor = true;
@@ -68,42 +70,48 @@
             // 
             // btnLimpiar
             // 
-            this.btnLimpiar.Location = new System.Drawing.Point(539, 394);
+            this.btnLimpiar.Location = new System.Drawing.Point(808, 606);
+            this.btnLimpiar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnLimpiar.Name = "btnLimpiar";
-            this.btnLimpiar.Size = new System.Drawing.Size(116, 32);
+            this.btnLimpiar.Size = new System.Drawing.Size(174, 49);
             this.btnLimpiar.TabIndex = 33;
             this.btnLimpiar.Text = "LIMPIAR CAMPOS";
             this.btnLimpiar.UseVisualStyleBackColor = true;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
             // txtId
             // 
             this.txtId.Enabled = false;
-            this.txtId.Location = new System.Drawing.Point(287, 75);
+            this.txtId.Location = new System.Drawing.Point(430, 115);
+            this.txtId.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtId.Name = "txtId";
-            this.txtId.Size = new System.Drawing.Size(134, 20);
+            this.txtId.Size = new System.Drawing.Size(199, 26);
             this.txtId.TabIndex = 32;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(145, 78);
+            this.label3.Location = new System.Drawing.Point(218, 120);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(41, 13);
+            this.label3.Size = new System.Drawing.Size(61, 20);
             this.label3.TabIndex = 31;
             this.label3.Text = "ID IVA:";
             // 
             // txtBuscar
             // 
-            this.txtBuscar.Location = new System.Drawing.Point(148, 401);
+            this.txtBuscar.Location = new System.Drawing.Point(222, 617);
+            this.txtBuscar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtBuscar.Name = "txtBuscar";
-            this.txtBuscar.Size = new System.Drawing.Size(195, 20);
+            this.txtBuscar.Size = new System.Drawing.Size(290, 26);
             this.txtBuscar.TabIndex = 30;
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(360, 394);
+            this.btnBuscar.Location = new System.Drawing.Point(540, 606);
+            this.btnBuscar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(116, 32);
+            this.btnBuscar.Size = new System.Drawing.Size(174, 49);
             this.btnBuscar.TabIndex = 29;
             this.btnBuscar.Text = "BUSCAR";
             this.btnBuscar.UseVisualStyleBackColor = true;
@@ -112,17 +120,20 @@
             // dataIva
             // 
             this.dataIva.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataIva.Location = new System.Drawing.Point(148, 209);
+            this.dataIva.Location = new System.Drawing.Point(222, 322);
+            this.dataIva.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dataIva.Name = "dataIva";
-            this.dataIva.Size = new System.Drawing.Size(426, 164);
+            this.dataIva.RowHeadersWidth = 62;
+            this.dataIva.Size = new System.Drawing.Size(639, 252);
             this.dataIva.TabIndex = 28;
             this.dataIva.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataIva_CellDoubleClick);
             // 
             // btnCrear
             // 
-            this.btnCrear.Location = new System.Drawing.Point(148, 159);
+            this.btnCrear.Location = new System.Drawing.Point(222, 245);
+            this.btnCrear.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnCrear.Name = "btnCrear";
-            this.btnCrear.Size = new System.Drawing.Size(116, 32);
+            this.btnCrear.Size = new System.Drawing.Size(174, 49);
             this.btnCrear.TabIndex = 27;
             this.btnCrear.Text = "CREAR";
             this.btnCrear.UseVisualStyleBackColor = true;
@@ -130,26 +141,29 @@
             // 
             // txtPorcentaje
             // 
-            this.txtPorcentaje.Location = new System.Drawing.Point(287, 114);
+            this.txtPorcentaje.Location = new System.Drawing.Point(430, 175);
+            this.txtPorcentaje.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtPorcentaje.Name = "txtPorcentaje";
-            this.txtPorcentaje.Size = new System.Drawing.Size(268, 20);
+            this.txtPorcentaje.Size = new System.Drawing.Size(400, 26);
             this.txtPorcentaje.TabIndex = 26;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(145, 117);
+            this.label2.Location = new System.Drawing.Point(218, 180);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(98, 13);
+            this.label2.Size = new System.Drawing.Size(147, 20);
             this.label2.TabIndex = 25;
             this.label2.Text = "PORCENTAJE (%):";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(284, 25);
+            this.label1.Location = new System.Drawing.Point(426, 38);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(189, 13);
+            this.label1.Size = new System.Drawing.Size(285, 20);
             this.label1.TabIndex = 24;
             this.label1.Text = "IMPUESTOS AL VALOR AGREGADO";
             // 
@@ -159,9 +173,9 @@
             // 
             // iva
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1200, 692);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.btnLimpiar);
@@ -174,6 +188,7 @@
             this.Controls.Add(this.txtPorcentaje);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "iva";
             this.Text = "iva";
             this.Load += new System.EventHandler(this.iva_Load);

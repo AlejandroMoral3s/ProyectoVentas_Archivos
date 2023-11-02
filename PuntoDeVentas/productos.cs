@@ -14,6 +14,7 @@ namespace PuntoDeVentas
     {
 
         int idActual = 0;
+        Validaciones check= new Validaciones(); 
 
         public productos()
         {
@@ -126,6 +127,7 @@ namespace PuntoDeVentas
 
         private void limpiar()
         {
+            error.Clear();
             txtIdProducto.Clear();
             txtIdIva.Clear();
             txtNombre.Clear();
@@ -150,6 +152,7 @@ namespace PuntoDeVentas
 
         private void btnCrear_Click(object sender, EventArgs e)
         {
+            error.Clear();
             try
             {
                 string respuesta = "";
@@ -186,7 +189,19 @@ namespace PuntoDeVentas
                     error.SetError(txtNota, "Ingrese la Nota");
                     return;
                 }
-                
+                if (check.esNum(txtPrecio.Text) == null)
+                {
+                    MensajeError("El precio debe ser un numero entero o decimal.");
+                    error.SetError(txtPrecio, "Ingrese el Precio");
+                    return;
+                }
+                if (check.esNum(txtIdIva.Text) !="int")
+                {
+                    MensajeError("Los id deben ser números enteros.");
+                    error.SetError(txtIdIva, "Ingrese el id_iva");
+                    return;
+                }
+
 
 
                 //GENERAR INSTANCIA A LA CLASE USUARIO
@@ -259,7 +274,20 @@ namespace PuntoDeVentas
                     error.SetError(txtNota, "Ingrese la Nota");
                     return;
                 }
-                
+                if (check.esNum(txtPrecio.Text) == null)
+                {
+                    MensajeError("El precio debe ser un numero entero o decimal.");
+                    error.SetError(txtPrecio, "Ingrese el Precio");
+                    return;
+                }
+                if (check.esNum(txtIdIva.Text) != "int")
+                {
+                    MensajeError("Los id deben ser números enteros.");
+                    error.SetError(txtIdIva, "Ingrese el id_iva");
+                    return;
+                }
+
+
 
                 //GENERAR INSTANCIA A LA CLASE PERFILES
                 productosObj obj = new productosObj();
@@ -355,6 +383,16 @@ namespace PuntoDeVentas
             txtPrecio.Text = datagridProductos.CurrentRow.Cells["precio"].Value.ToString();
             txtNota.Text = datagridProductos.CurrentRow.Cells["nota"].Value.ToString();
            
+        }
+
+        private void txtPrecio_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            limpiar();
         }
     }
 }

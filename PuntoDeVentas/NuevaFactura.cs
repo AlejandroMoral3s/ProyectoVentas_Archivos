@@ -18,9 +18,11 @@ namespace PuntoDeVentas
         int idActual_Factura = 0;
         int idActual_Detalle = 0;
         bool crearFactura_permitido = true;
+        Validaciones check = new Validaciones();
 
         public string precioVolatil = "";
         public decimal totalFacturaVolatil = 0;
+
 
         public NuevaFactura()
         {
@@ -33,8 +35,17 @@ namespace PuntoDeVentas
             extraer_ultimo_id_detalle();
             listarClientes();
             listarProductos();
+            //setIdUsuario();
         }
 
+
+        public void setIdUsuario()
+        {
+            Login login = new Login();
+            txtIdUsuario.Enabled = false;
+            MessageBox.Show(login.getIdUsuario());
+            txtIdUsuario.Text = login.getIdUsuario();
+        }
 
         private void extraer_ultimo_id_Factura()
         {
@@ -85,6 +96,7 @@ namespace PuntoDeVentas
 
         private void limpiar()
         {
+            error.Clear();
             txtIdUsuario.Clear();
             //txtIdFactura.Clear();
             txtId_Cliente.Clear();
@@ -219,7 +231,7 @@ namespace PuntoDeVentas
 
         private void btnAgregarProducto_Click(object sender, EventArgs e)
         {
-
+            error.Clear();
             try
             {
                 string respuestaNuevaFactura = "";
@@ -271,9 +283,14 @@ namespace PuntoDeVentas
                     error.SetError(txtIdDetalle, "Ingrese el id_detalle");
                     return;
                 }
-
+                if (check.esNum(txtCantidad.Text) != "int")
+                {
+                    MensajeError("La cantidad debe ser un numero entero.");
+                    error.SetError(txtCantidad, "Ingrese la cantidad");
+                    return;
+                }
                 //GENERAR INSTANCIA A LA CLASE USUARIO
-               
+
                 //SI LA CASILLA DE ID FACTURA ESTA VISIBLE SE CREARA UN REGISTRO DE FACTURA, DE LO CONTRARIO SOLO SE CREARAN DETALLES
 
                 if (crearFactura_permitido)

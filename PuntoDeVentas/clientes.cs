@@ -14,6 +14,7 @@ namespace PuntoDeVentas
     {
 
         int idActual = 0;
+        Validaciones check = new Validaciones();
 
         public Clientes()
         {
@@ -35,8 +36,6 @@ namespace PuntoDeVentas
             clientesSql ps = new clientesSql();
 
             string indiceVolatil = ps.ultimoId_Cliente();
-
-
 
             if (indiceVolatil.Equals(""))
             {
@@ -69,9 +68,6 @@ namespace PuntoDeVentas
                 MessageBox.Show(ex.Message + ex.StackTrace);
             }
         }
-
-
-
 
         private void buscarCliente()
         {
@@ -133,7 +129,7 @@ namespace PuntoDeVentas
 
         private void limpiar()
         {
-            txtIdCliente.Clear();
+            error.Clear();
             txtIdDocumento.Clear();
             txtIdMunicipio.Clear();
             txtNombres.Clear();
@@ -180,9 +176,9 @@ namespace PuntoDeVentas
 
         private void btnCrear_Click(object sender, EventArgs e)
         {
-
             try
             {
+                error.Clear();
                 string respuesta = "";
 
                 //validaciones de cada campo receptor
@@ -241,8 +237,30 @@ namespace PuntoDeVentas
                     error.SetError(txtTelefono, "Ingrese el numero de telefono");
                     return;
                 }
-                
-
+                if (check.esNum(txtIdDocumento.Text)!=("int"))
+                {
+                    MensajeError("Los id solo pueden ser números");
+                    error.SetError(txtIdDocumento, "Ingresa un id válido");
+                    return;
+                }
+                if (check.esNum(txtIdMunicipio.Text)!=("int"))
+                {
+                    MensajeError("Los id solo pueden ser números");
+                    error.SetError(txtIdMunicipio, "Ingresa un id válido");
+                    return;
+                }
+                if (check.esNum(txtTelefono.Text)!=("int"))
+                {
+                    MensajeError("Los teléfonos solo pueden contener caracteres numéricos");
+                    error.SetError(txtTelefono, "Ingresa un teléfono válido");
+                    return;
+                }
+                if (check.esNum(txtNoDocumento.Text)!="int")
+                {
+                    MensajeError("Los No. de documento solo pueden contener caracteres numéricos");
+                    error.SetError(txtNoDocumento, "Ingresa un documento válido");
+                    return;
+                }
 
                 //GENERAR INSTANCIA A LA CLASE USUARIO
                 clientesObj obj = new clientesObj();
@@ -347,6 +365,30 @@ namespace PuntoDeVentas
                     error.SetError(txtTelefono, "Ingrese el numero de telefono");
                     return;
                 }
+                if (check.esNum(txtIdDocumento.Text) != ("int"))
+                {
+                    MensajeError("Los id solo pueden ser números");
+                    error.SetError(txtIdDocumento, "Ingresa un id válido");
+                    return;
+                }
+                if (check.esNum(txtIdMunicipio.Text) != ("int"))
+                {
+                    MensajeError("Los id solo pueden ser números");
+                    error.SetError(txtIdMunicipio, "Ingresa un id válido");
+                    return;
+                }
+                if (check.esNum(txtTelefono.Text) != ("int"))
+                {
+                    MensajeError("Los teléfonos solo pueden contener caracteres numéricos");
+                    error.SetError(txtTelefono, "Ingresa un teléfono válido");
+                    return;
+                }
+                if (check.esNum(txtNoDocumento.Text) != "int")
+                {
+                    MensajeError("Los No. de documento solo pueden contener caracteres numéricos");
+                    error.SetError(txtNoDocumento, "Ingresa un documento válido");
+                    return;
+                }
 
 
 
@@ -395,14 +437,9 @@ namespace PuntoDeVentas
 
             try
             {
-
-                
-
                 DialogResult Opcion;
                 string respuesta = "";
                 Opcion = MessageBox.Show("Esta seguro de eliminar este registro permanentemente?", "Registros", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-
-
 
                 if (Opcion == DialogResult.OK)
                 {
@@ -459,7 +496,11 @@ namespace PuntoDeVentas
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-
+            limpiar();
         }
+
     }
 }
+
+
+//Faltan botones
