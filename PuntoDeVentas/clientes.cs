@@ -456,5 +456,10 @@ namespace PuntoDeVentas
             calendarioIngreso.Text = datagridClientes.CurrentRow.Cells["fecha_ingreso"].Value.ToString();
             txtNoDocumento.Text = datagridClientes.CurrentRow.Cells["no_documento"].Value.ToString();
         }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

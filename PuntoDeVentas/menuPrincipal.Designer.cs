@@ -396,7 +396,7 @@
         private System.Windows.Forms.ToolStripMenuItem subOpcionIva;
         private System.Windows.Forms.ToolStripMenuItem municipioToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem perfilesToolStripMenuItem;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        public System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.ToolStripMenuItem pestania_Archivos;
         private System.Windows.Forms.ToolStripMenuItem opcion_clientes;
         private System.Windows.Forms.ToolStripMenuItem opcion_Productos;

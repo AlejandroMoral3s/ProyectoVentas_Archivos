@@ -83,6 +83,7 @@
     <Compile Include="cambioClave.Designer.cs">
       <DependentUpon>cambioClave.cs</DependentUpon>
     </Compile>
+    <Compile Include="CambioClaveSql.cs" />
     <Compile Include="cambioUsuario.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -107,6 +107,7 @@ namespace PuntoDeVentas
             panelPrincipal.Visible = inicio;
             opcion_usuarios.Visible = admin;
             opcion_reportes.Visible = admin;
+
         }
 
         private void menuPrincipal_Load(object sender, EventArgs e)
