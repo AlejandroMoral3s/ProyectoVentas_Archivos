@@ -258,6 +258,7 @@ namespace PuntoDeVentas
 
         private void limpiar()
         {
+            error.Clear();
             txtIdPerfil.Clear();
             txtIdUsuario.Clear();
             txtNombre.Clear();
@@ -302,7 +303,7 @@ namespace PuntoDeVentas
 
         private void btnActualizar_Click(object sender, EventArgs e)
         {
-
+            error.Clear();
             try
             {
                 string respuesta = "";
@@ -359,6 +360,18 @@ namespace PuntoDeVentas
                 {
                     MensajeError("Falta llenar algunos cuadros de informacion.");
                     error.SetError(txtConfirmacion, "Ingrese la Confirmacion de clave");
+                    return;
+                }
+                if (!txtClave.Text.Equals(txtConfirmacion.Text))
+                {
+                    MensajeError("La clave y la confirmación no coinciden.");
+                    error.SetError(txtConfirmacion, "Ingrese la Confirmacion de clave");
+                    return;
+                }
+                if (check.esNum(txtTelefono.Text) != "int")
+                {
+                    MensajeError("El teléfono solo puede contener caracteres numéricos.");
+                    error.SetError(txtTelefono, "Ingrese el telefono");
                     return;
                 }
 
@@ -443,6 +456,11 @@ namespace PuntoDeVentas
         private void btnPrimero_Click(object sender, EventArgs e)
         {
             
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            limpiar();
         }
     }
 }
