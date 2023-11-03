@@ -13,7 +13,7 @@ namespace PuntoDeVentas
     public partial class Login : Form
     {
         private bool inicio, admin;
-        private string id_usuario;
+        static string id_usuario;
         public Login()
         {
             InitializeComponent();
@@ -27,7 +27,7 @@ namespace PuntoDeVentas
 
         public bool getAdmin() => admin;
 
-        public void setIdUsuario(string id_usuario) => this.id_usuario = id_usuario;
+        public void setIdUsuario(string _id_usuario) => id_usuario = _id_usuario;
 
         public string getIdUsuario() => id_usuario;
 

@@ -8,8 +8,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
+using iTextSharp.text.pdf.draw;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace PuntoDeVentas
 {
@@ -136,7 +139,14 @@ namespace PuntoDeVentas
             iTextSharp.text.Font _standardFont = new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.TIMES_ROMAN, 8, iTextSharp.text.Font.NORMAL, BaseColor.BLACK);
             iTextSharp.text.Font fuenteDetalles = new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 8, iTextSharp.text.Font.NORMAL);
 
-            
+
+            iTextSharp.text.Image image = iTextSharp.text.Image.GetInstance("D:\\U\\archivos\\proyectos\\proyecto3\\ProyectoVentas_Archivos\\PuntoDeVentas\\Resources\\logo.png");
+            image.ScaleToFit(60f, 60f);
+            image.SpacingBefore = 60f;
+
+            doc.Add(new Chunk(image,0,0));
+
+
 
             doc.Add(new Paragraph("REPORTE DE FACTURACION"));
             doc.Add(Chunk.NEWLINE);
@@ -148,8 +158,9 @@ namespace PuntoDeVentas
             //CICLO PARA LA FACTURACION Y EL DETALLE DE FACTURAS
             for( int i = 0; i < dataFacturas.Rows.Count-1; i++ )
             {
-
-                doc.Add(new Phrase("REGISTRO [ "+(i+1)+" ] ---------------------------------------------------------------------------------"));
+                LineSeparator line = new LineSeparator(1f, 100f, BaseColor.RED, Element.ALIGN_LEFT, 1);
+                doc.Add(line);
+                doc.Add(new Phrase("REGISTRO "+(i+1)+" "));
                 
                 doc.Add(Chunk.NEWLINE);
                 doc.Add(Chunk.NEWLINE);
@@ -312,6 +323,8 @@ namespace PuntoDeVentas
 
             doc.Close();
             writer.Close();
+
+            MessageBox.Show("Reporte generado con éxito");
 
         }
     }

@@ -35,7 +35,7 @@ namespace PuntoDeVentas
             extraer_ultimo_id_detalle();
             listarClientes();
             listarProductos();
-            //setIdUsuario();
+            setIdUsuario();
         }
 
 
@@ -43,7 +43,6 @@ namespace PuntoDeVentas
         {
             Login login = new Login();
             txtIdUsuario.Enabled = false;
-            MessageBox.Show(login.getIdUsuario());
             txtIdUsuario.Text = login.getIdUsuario();
         }
 

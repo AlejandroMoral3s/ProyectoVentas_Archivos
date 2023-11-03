@@ -41,7 +41,7 @@ namespace PuntoDeVentas
             SqlConnection con = new SqlConnection();
             try
             {
-                string sql = "select id_usuario from Usuario where '" + us + "' = nombre_usuario" ;
+                string sql = "select nombres from Usuario where '" + us + "' = nombre_usuario" ;
 
                 con = Conexion.crearInstancia().crearConexion();
                 SqlCommand comando = new SqlCommand(sql, con);
