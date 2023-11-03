@@ -124,6 +124,7 @@
             this.btnUltimo.TabIndex = 53;
             this.btnUltimo.Text = ">>|";
             this.btnUltimo.UseVisualStyleBackColor = true;
+            this.btnUltimo.Click += new System.EventHandler(this.btnUltimo_Click);
             // 
             // btnSiguiente
             // 
@@ -134,6 +135,7 @@
             this.btnSiguiente.TabIndex = 52;
             this.btnSiguiente.Text = ">";
             this.btnSiguiente.UseVisualStyleBackColor = true;
+            this.btnSiguiente.Click += new System.EventHandler(this.btnSiguiente_Click);
             // 
             // btnAnterior
             // 
@@ -144,6 +146,7 @@
             this.btnAnterior.TabIndex = 51;
             this.btnAnterior.Text = "<";
             this.btnAnterior.UseVisualStyleBackColor = true;
+            this.btnAnterior.Click += new System.EventHandler(this.btnAnterior_Click);
             // 
             // btnPrimero
             // 
@@ -154,6 +157,7 @@
             this.btnPrimero.TabIndex = 50;
             this.btnPrimero.Text = "|<<";
             this.btnPrimero.UseVisualStyleBackColor = true;
+            this.btnPrimero.Click += new System.EventHandler(this.btnPrimero_Click);
             // 
             // datagridProductos
             // 
@@ -165,6 +169,9 @@
             this.datagridProductos.Size = new System.Drawing.Size(1484, 305);
             this.datagridProductos.TabIndex = 37;
             this.datagridProductos.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.datagridProductos_CellDoubleClick);
+            this.datagridProductos.CurrentCellChanged += new System.EventHandler(this.datagridProductos_CurrentCellChanged);
+
+
             // 
             // panel1
             // 

@@ -453,14 +453,112 @@ namespace PuntoDeVentas
             txtIdPerfil.Text = datagridPerfil.CurrentRow.Cells["id_perfil"].Value.ToString(); 
         }
 
-        private void btnPrimero_Click(object sender, EventArgs e)
-        {
-            
-        }
-
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             limpiar();
+        }
+
+
+
+        ////////////////////////////////////////////////////////////////////////
+
+        int indice = 0;
+
+        private void datagridUsuarios_CurrentCellChanged(object sender, EventArgs e)
+        {
+            if (datagridUsuarios.CurrentRow != null)
+                indice = datagridUsuarios.CurrentRow.Index;
+        }
+        private void btnAnterior_Click(object sender, EventArgs e)
+        {
+            int anterior = indice - 1;
+
+            if (anterior < 0)
+            {
+                indice = datagridUsuarios.Rows.Count;
+                anterior = datagridUsuarios.Rows.Count - 1;
+                datagridUsuarios.CurrentCell = datagridUsuarios.Rows[anterior].Cells[datagridUsuarios.CurrentCell.ColumnIndex];
+                
+            }
+            else
+            {
+                indice--;
+                datagridUsuarios.CurrentCell = datagridUsuarios.Rows[anterior].Cells[datagridUsuarios.CurrentCell.ColumnIndex];
+            }
+
+            limpiar();
+            txtIdUsuario.Text = datagridUsuarios.CurrentRow.Cells["id_usuario"].Value.ToString();
+            txtIdPerfil.Text = datagridUsuarios.CurrentRow.Cells["id_perfil"].Value.ToString();
+            txtNombre.Text = datagridUsuarios.CurrentRow.Cells["nombres"].Value.ToString();
+            txtApellido.Text = datagridUsuarios.CurrentRow.Cells["apellidos"].Value.ToString();
+            txtDireccion.Text = datagridUsuarios.CurrentRow.Cells["direccion"].Value.ToString();
+            txtTelefono.Text = datagridUsuarios.CurrentRow.Cells["telefono"].Value.ToString();
+            txtUserName.Text = datagridUsuarios.CurrentRow.Cells["nombre_usuario"].Value.ToString();
+            txtClave.Text = datagridUsuarios.CurrentRow.Cells["clave"].Value.ToString();
+            txtConfirmacion.Text = datagridUsuarios.CurrentRow.Cells["confirmacion"].Value.ToString();
+
+        }
+        private void btnSiguiente_Click(object sender, EventArgs e)
+        {
+            int siguiente = indice + 1;
+
+            if (siguiente < datagridUsuarios.Rows.Count - 1)
+            {
+                datagridUsuarios.CurrentCell = datagridUsuarios.Rows[siguiente].Cells[datagridUsuarios.CurrentCell.ColumnIndex];
+            }
+            else
+            {
+                indice = 0;
+                siguiente=0;
+                datagridUsuarios.CurrentCell = datagridUsuarios.Rows[siguiente].Cells[datagridUsuarios.CurrentCell.ColumnIndex];
+            }
+
+            limpiar();
+            txtIdUsuario.Text = datagridUsuarios.CurrentRow.Cells["id_usuario"].Value.ToString();
+            txtIdPerfil.Text = datagridUsuarios.CurrentRow.Cells["id_perfil"].Value.ToString();
+            txtNombre.Text = datagridUsuarios.CurrentRow.Cells["nombres"].Value.ToString();
+            txtApellido.Text = datagridUsuarios.CurrentRow.Cells["apellidos"].Value.ToString();
+            txtDireccion.Text = datagridUsuarios.CurrentRow.Cells["direccion"].Value.ToString();
+            txtTelefono.Text = datagridUsuarios.CurrentRow.Cells["telefono"].Value.ToString();
+            txtUserName.Text = datagridUsuarios.CurrentRow.Cells["nombre_usuario"].Value.ToString();
+            txtClave.Text = datagridUsuarios.CurrentRow.Cells["clave"].Value.ToString();
+            txtConfirmacion.Text = datagridUsuarios.CurrentRow.Cells["confirmacion"].Value.ToString();
+
+        }
+        private void btnPrimero_Click(object sender, EventArgs e)
+        {
+            int primero = 0;
+            datagridUsuarios.CurrentCell = datagridUsuarios.Rows[primero].Cells[datagridUsuarios.CurrentCell.ColumnIndex];
+            indice = primero;
+
+            limpiar();
+            txtIdUsuario.Text = datagridUsuarios.CurrentRow.Cells["id_usuario"].Value.ToString();
+            txtIdPerfil.Text = datagridUsuarios.CurrentRow.Cells["id_perfil"].Value.ToString();
+            txtNombre.Text = datagridUsuarios.CurrentRow.Cells["nombres"].Value.ToString();
+            txtApellido.Text = datagridUsuarios.CurrentRow.Cells["apellidos"].Value.ToString();
+            txtDireccion.Text = datagridUsuarios.CurrentRow.Cells["direccion"].Value.ToString();
+            txtTelefono.Text = datagridUsuarios.CurrentRow.Cells["telefono"].Value.ToString();
+            txtUserName.Text = datagridUsuarios.CurrentRow.Cells["nombre_usuario"].Value.ToString();
+            txtClave.Text = datagridUsuarios.CurrentRow.Cells["clave"].Value.ToString();
+            txtConfirmacion.Text = datagridUsuarios.CurrentRow.Cells["confirmacion"].Value.ToString();
+
+        }
+        private void btnUltimo_Click(object sender, EventArgs e)
+        {
+            int ultimo = (datagridUsuarios.Rows.Count - 2);
+            datagridUsuarios.CurrentCell = datagridUsuarios.Rows[ultimo].Cells[datagridUsuarios.CurrentCell.ColumnIndex];
+            indice = ultimo;
+
+            limpiar();
+            txtIdUsuario.Text = datagridUsuarios.CurrentRow.Cells["id_usuario"].Value.ToString();
+            txtIdPerfil.Text = datagridUsuarios.CurrentRow.Cells["id_perfil"].Value.ToString();
+            txtNombre.Text = datagridUsuarios.CurrentRow.Cells["nombres"].Value.ToString();
+            txtApellido.Text = datagridUsuarios.CurrentRow.Cells["apellidos"].Value.ToString();
+            txtDireccion.Text = datagridUsuarios.CurrentRow.Cells["direccion"].Value.ToString();
+            txtTelefono.Text = datagridUsuarios.CurrentRow.Cells["telefono"].Value.ToString();
+            txtUserName.Text = datagridUsuarios.CurrentRow.Cells["nombre_usuario"].Value.ToString();
+            txtClave.Text = datagridUsuarios.CurrentRow.Cells["clave"].Value.ToString();
+            txtConfirmacion.Text = datagridUsuarios.CurrentRow.Cells["confirmacion"].Value.ToString();
         }
     }
 }

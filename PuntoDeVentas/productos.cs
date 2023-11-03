@@ -394,5 +394,96 @@ namespace PuntoDeVentas
         {
             limpiar();
         }
+
+
+
+        //this.datagridUsuarios.CurrentCellChanged += new System.EventHandler(this.datagridUsuarios_CurrentCellChanged);
+
+
+        int indice = 0;
+        private void datagridProductos_CurrentCellChanged(object sender, EventArgs e)
+        {
+            if (datagridProductos.CurrentRow != null)
+                indice = datagridProductos.CurrentRow.Index;
+        }
+
+        private void btnAnterior_Click(object sender, EventArgs e)
+        {
+            int anterior = indice - 1;
+
+            if (anterior < 0)
+            {
+                indice = datagridProductos.Rows.Count;
+                anterior = datagridProductos.Rows.Count-1;
+                datagridProductos.CurrentCell = datagridProductos.Rows[anterior].Cells[datagridProductos.CurrentCell.ColumnIndex];
+
+            }
+            else
+            {
+                indice--;
+                datagridProductos.CurrentCell = datagridProductos.Rows[anterior].Cells[datagridProductos.CurrentCell.ColumnIndex];
+            }
+
+            limpiar();
+            txtIdProducto.Text = datagridProductos.CurrentRow.Cells["id_producto"].Value.ToString();
+            txtIdIva.Text = datagridProductos.CurrentRow.Cells["id_iva"].Value.ToString();
+            txtNombre.Text = datagridProductos.CurrentRow.Cells["nombre"].Value.ToString();
+            txtPrecio.Text = datagridProductos.CurrentRow.Cells["precio"].Value.ToString();
+            txtNota.Text = datagridProductos.CurrentRow.Cells["nota"].Value.ToString();
+
+        }
+
+        private void btnSiguiente_Click(object sender, EventArgs e)
+        {
+            int siguiente = indice + 1;
+
+            if (siguiente < datagridProductos.Rows.Count - 1)
+            {
+                datagridProductos.CurrentCell = datagridProductos.Rows[siguiente].Cells[datagridProductos.CurrentCell.ColumnIndex];
+            }
+            else
+            {
+                indice = 0;
+                siguiente = 0;
+                datagridProductos.CurrentCell = datagridProductos.Rows[siguiente].Cells[datagridProductos.CurrentCell.ColumnIndex];
+            }
+            limpiar();
+            txtIdProducto.Text = datagridProductos.CurrentRow.Cells["id_producto"].Value.ToString();
+            txtIdIva.Text = datagridProductos.CurrentRow.Cells["id_iva"].Value.ToString();
+            txtNombre.Text = datagridProductos.CurrentRow.Cells["nombre"].Value.ToString();
+            txtPrecio.Text = datagridProductos.CurrentRow.Cells["precio"].Value.ToString();
+            txtNota.Text = datagridProductos.CurrentRow.Cells["nota"].Value.ToString();
+        }
+
+        private void btnPrimero_Click(object sender, EventArgs e)
+        {
+            int primero = 0;
+            datagridProductos.CurrentCell = datagridProductos.Rows[primero].Cells[datagridProductos.CurrentCell.ColumnIndex];
+            indice = primero;
+
+            limpiar();
+            txtIdProducto.Text = datagridProductos.CurrentRow.Cells["id_producto"].Value.ToString();
+            txtIdIva.Text = datagridProductos.CurrentRow.Cells["id_iva"].Value.ToString();
+            txtNombre.Text = datagridProductos.CurrentRow.Cells["nombre"].Value.ToString();
+            txtPrecio.Text = datagridProductos.CurrentRow.Cells["precio"].Value.ToString();
+            txtNota.Text = datagridProductos.CurrentRow.Cells["nota"].Value.ToString();
+
+        }
+
+        private void btnUltimo_Click(object sender, EventArgs e)
+        {
+            int ultimo = (datagridProductos.Rows.Count - 2);
+            datagridProductos.CurrentCell = datagridProductos.Rows[ultimo].Cells[datagridProductos.CurrentCell.ColumnIndex];
+            indice = ultimo;
+
+            limpiar();
+            txtIdProducto.Text = datagridProductos.CurrentRow.Cells["id_producto"].Value.ToString();
+            txtIdIva.Text = datagridProductos.CurrentRow.Cells["id_iva"].Value.ToString();
+            txtNombre.Text = datagridProductos.CurrentRow.Cells["nombre"].Value.ToString();
+            txtPrecio.Text = datagridProductos.CurrentRow.Cells["precio"].Value.ToString();
+            txtNota.Text = datagridProductos.CurrentRow.Cells["nota"].Value.ToString();
+
+
+        }
     }
 }

@@ -499,8 +499,121 @@ namespace PuntoDeVentas
             limpiar();
         }
 
+
+
+
+        //this.datagridUsuarios.CurrentCellChanged += new System.EventHandler(this.datagridUsuarios_CurrentCellChanged);
+
+
+        int indice = 0;
+        private void datagridClientes_CurrentCellChanged(object sender, EventArgs e)
+        {
+            if (datagridClientes.CurrentRow != null)
+                indice = datagridClientes.CurrentRow.Index;
+
+        }
+        private void btnAnterior_Click(object sender, EventArgs e)
+        {
+            int anterior = indice - 1;
+
+            if (anterior < 0)
+            {
+                indice = datagridClientes.Rows.Count;
+                anterior = datagridClientes.Rows.Count - 1;
+                datagridClientes.CurrentCell = datagridClientes.Rows[anterior].Cells[datagridClientes.CurrentCell.ColumnIndex];
+
+            }
+            else
+            {
+                indice--;
+                datagridClientes.CurrentCell = datagridClientes.Rows[anterior].Cells[datagridClientes.CurrentCell.ColumnIndex];
+            }
+
+            limpiar();
+            txtIdCliente.Text = datagridClientes.CurrentRow.Cells["id_cliente"].Value.ToString();
+            txtIdDocumento.Text = datagridClientes.CurrentRow.Cells["id_documento"].Value.ToString();
+            txtIdMunicipio.Text = datagridClientes.CurrentRow.Cells["id_municipio"].Value.ToString();
+            txtNombres.Text = datagridClientes.CurrentRow.Cells["nombres"].Value.ToString();
+            txtApellidos.Text = datagridClientes.CurrentRow.Cells["apellidos"].Value.ToString();
+            txtNit.Text = datagridClientes.CurrentRow.Cells["nit_cliente"].Value.ToString();
+            txtDireccion.Text = datagridClientes.CurrentRow.Cells["direccion"].Value.ToString();
+            txtTelefono.Text = datagridClientes.CurrentRow.Cells["telefono"].Value.ToString();
+            calendarioNacimiento.Text = datagridClientes.CurrentRow.Cells["fecha_nacimiento"].Value.ToString();
+            calendarioIngreso.Text = datagridClientes.CurrentRow.Cells["fecha_ingreso"].Value.ToString();
+            txtNoDocumento.Text = datagridClientes.CurrentRow.Cells["no_documento"].Value.ToString();
+
+
+        }
+
+        private void btnSiguiente_Click(object sender, EventArgs e)
+        {
+            int siguiente = indice + 1;
+
+            if (siguiente < datagridClientes.Rows.Count - 1)
+            {
+                datagridClientes.CurrentCell = datagridClientes.Rows[siguiente].Cells[datagridClientes.CurrentCell.ColumnIndex];
+            }
+            else
+            {
+                indice = 0;
+                siguiente = 0;
+                datagridClientes.CurrentCell = datagridClientes.Rows[siguiente].Cells[datagridClientes.CurrentCell.ColumnIndex];
+            }
+            limpiar();
+            txtIdCliente.Text = datagridClientes.CurrentRow.Cells["id_cliente"].Value.ToString();
+            txtIdDocumento.Text = datagridClientes.CurrentRow.Cells["id_documento"].Value.ToString();
+            txtIdMunicipio.Text = datagridClientes.CurrentRow.Cells["id_municipio"].Value.ToString();
+            txtNombres.Text = datagridClientes.CurrentRow.Cells["nombres"].Value.ToString();
+            txtApellidos.Text = datagridClientes.CurrentRow.Cells["apellidos"].Value.ToString();
+            txtNit.Text = datagridClientes.CurrentRow.Cells["nit_cliente"].Value.ToString();
+            txtDireccion.Text = datagridClientes.CurrentRow.Cells["direccion"].Value.ToString();
+            txtTelefono.Text = datagridClientes.CurrentRow.Cells["telefono"].Value.ToString();
+            calendarioNacimiento.Text = datagridClientes.CurrentRow.Cells["fecha_nacimiento"].Value.ToString();
+            calendarioIngreso.Text = datagridClientes.CurrentRow.Cells["fecha_ingreso"].Value.ToString();
+            txtNoDocumento.Text = datagridClientes.CurrentRow.Cells["no_documento"].Value.ToString();
+
+        }
+
+        private void btnPrimero_Click(object sender, EventArgs e)
+        {
+            int primero = 0;
+            datagridClientes.CurrentCell = datagridClientes.Rows[primero].Cells[datagridClientes.CurrentCell.ColumnIndex];
+            indice = primero;
+
+            limpiar();
+            txtIdCliente.Text = datagridClientes.CurrentRow.Cells["id_cliente"].Value.ToString();
+            txtIdDocumento.Text = datagridClientes.CurrentRow.Cells["id_documento"].Value.ToString();
+            txtIdMunicipio.Text = datagridClientes.CurrentRow.Cells["id_municipio"].Value.ToString();
+            txtNombres.Text = datagridClientes.CurrentRow.Cells["nombres"].Value.ToString();
+            txtApellidos.Text = datagridClientes.CurrentRow.Cells["apellidos"].Value.ToString();
+            txtNit.Text = datagridClientes.CurrentRow.Cells["nit_cliente"].Value.ToString();
+            txtDireccion.Text = datagridClientes.CurrentRow.Cells["direccion"].Value.ToString();
+            txtTelefono.Text = datagridClientes.CurrentRow.Cells["telefono"].Value.ToString();
+            calendarioNacimiento.Text = datagridClientes.CurrentRow.Cells["fecha_nacimiento"].Value.ToString();
+            calendarioIngreso.Text = datagridClientes.CurrentRow.Cells["fecha_ingreso"].Value.ToString();
+            txtNoDocumento.Text = datagridClientes.CurrentRow.Cells["no_documento"].Value.ToString();
+        }
+
+        private void btnUltimo_Click(object sender, EventArgs e)
+        {
+            int ultimo = (datagridClientes.Rows.Count - 2);
+            datagridClientes.CurrentCell = datagridClientes.Rows[ultimo].Cells[datagridClientes.CurrentCell.ColumnIndex];
+            indice = ultimo;
+
+            limpiar();
+            txtIdCliente.Text = datagridClientes.CurrentRow.Cells["id_cliente"].Value.ToString();
+            txtIdDocumento.Text = datagridClientes.CurrentRow.Cells["id_documento"].Value.ToString();
+            txtIdMunicipio.Text = datagridClientes.CurrentRow.Cells["id_municipio"].Value.ToString();
+            txtNombres.Text = datagridClientes.CurrentRow.Cells["nombres"].Value.ToString();
+            txtApellidos.Text = datagridClientes.CurrentRow.Cells["apellidos"].Value.ToString();
+            txtNit.Text = datagridClientes.CurrentRow.Cells["nit_cliente"].Value.ToString();
+            txtDireccion.Text = datagridClientes.CurrentRow.Cells["direccion"].Value.ToString();
+            txtTelefono.Text = datagridClientes.CurrentRow.Cells["telefono"].Value.ToString();
+            calendarioNacimiento.Text = datagridClientes.CurrentRow.Cells["fecha_nacimiento"].Value.ToString();
+            calendarioIngreso.Text = datagridClientes.CurrentRow.Cells["fecha_ingreso"].Value.ToString();
+            txtNoDocumento.Text = datagridClientes.CurrentRow.Cells["no_documento"].Value.ToString();
+
+
+        }
     }
 }
-
-
-//Faltan botones

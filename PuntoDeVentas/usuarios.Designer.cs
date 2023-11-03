@@ -1,4 +1,6 @@
-﻿namespace PuntoDeVentas
+﻿using System.Windows.Forms.VisualStyles;
+
+namespace PuntoDeVentas
 {
     partial class usuarios
     {
@@ -310,6 +312,7 @@
             this.datagridUsuarios.Size = new System.Drawing.Size(1484, 305);
             this.datagridUsuarios.TabIndex = 9;
             this.datagridUsuarios.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.datagridUsuarios_CellDoubleClick);
+            this.datagridUsuarios.CurrentCellChanged += new System.EventHandler(this.datagridUsuarios_CurrentCellChanged);
             // 
             // btnPrimero
             // 
@@ -331,6 +334,7 @@
             this.btnAnterior.TabIndex = 22;
             this.btnAnterior.Text = "<";
             this.btnAnterior.UseVisualStyleBackColor = true;
+            this.btnAnterior.Click += new System.EventHandler(this.btnAnterior_Click);
             // 
             // btnSiguiente
             // 
@@ -341,6 +345,7 @@
             this.btnSiguiente.TabIndex = 23;
             this.btnSiguiente.Text = ">";
             this.btnSiguiente.UseVisualStyleBackColor = true;
+            this.btnSiguiente.Click += new System.EventHandler(this.btnSiguiente_Click);
             // 
             // btnUltimo
             // 
@@ -351,6 +356,7 @@
             this.btnUltimo.TabIndex = 24;
             this.btnUltimo.Text = ">>|";
             this.btnUltimo.UseVisualStyleBackColor = true;
+            this.btnUltimo.Click += new System.EventHandler(this.btnUltimo_Click);
             // 
             // btnCancelar
             // 
