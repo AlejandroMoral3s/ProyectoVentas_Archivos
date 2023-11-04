@@ -245,6 +245,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\logo.png" />
+    <None Include="Resources\logo1.png" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
