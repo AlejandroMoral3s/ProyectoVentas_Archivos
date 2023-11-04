@@ -59,6 +59,7 @@ namespace PuntoDeVentas
             Login ventanaLogin = new Login();
             setConfig(ventanaLogin.getInicio(), ventanaLogin.getAdmin());
             ventanaLogin.ShowDialog();
+            abrirFormulario(new AcercaDe());
             setConfig(ventanaLogin.getInicio(), ventanaLogin.getAdmin());
         }
 
@@ -107,7 +108,7 @@ namespace PuntoDeVentas
             panelPrincipal.Visible = inicio;
             opcion_usuarios.Visible = admin;
             opcion_reportes.Visible = admin;
-
+            opcion_cambiarClave.Visible = admin;
         }
 
         private void menuPrincipal_Load(object sender, EventArgs e)

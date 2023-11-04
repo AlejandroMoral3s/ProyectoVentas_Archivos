@@ -140,6 +140,7 @@ namespace PuntoDeVentas
         private void btnCrear_Click(object sender, EventArgs e)
         {
             error.Clear();
+            LoginSql user = new LoginSql(); 
             try
             {
                 string respuesta = "";
@@ -210,6 +211,12 @@ namespace PuntoDeVentas
                 {
                     MensajeError("El teléfono solo puede contener caracteres numéricos.");
                     error.SetError(txtTelefono, "Ingrese el telefono");
+                    return;
+                }
+                if (user.getUsuario(txtUserName.Text).Equals(txtUserName.Text))
+                {
+                    MensajeError("Este nombre de usuario ya existe.");
+                    error.SetError(txtUserName, "Ingrese un nombre de usuario diferente");
                     return;
                 }
 

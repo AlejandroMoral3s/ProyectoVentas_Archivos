@@ -74,6 +74,7 @@
             // 
             // menuBar
             // 
+            this.menuBar.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
             this.menuBar.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.menuBar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.pestania_Archivos,
@@ -81,8 +82,8 @@
             this.pestania_ayuda});
             this.menuBar.Location = new System.Drawing.Point(0, 0);
             this.menuBar.Name = "menuBar";
-            this.menuBar.Padding = new System.Windows.Forms.Padding(4, 1, 0, 1);
-            this.menuBar.Size = new System.Drawing.Size(1178, 24);
+            this.menuBar.Padding = new System.Windows.Forms.Padding(6, 2, 0, 2);
+            this.menuBar.Size = new System.Drawing.Size(1767, 33);
             this.menuBar.TabIndex = 0;
             this.menuBar.Text = "menuStrip1";
             this.menuBar.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuBar_ItemClicked);
@@ -99,7 +100,7 @@
             this.toolStripSeparator4,
             this.opcion_Salir});
             this.pestania_Archivos.Name = "pestania_Archivos";
-            this.pestania_Archivos.Size = new System.Drawing.Size(70, 22);
+            this.pestania_Archivos.Size = new System.Drawing.Size(105, 29);
             this.pestania_Archivos.Text = "ARCHIVO";
             // 
             // opcion_clientes
@@ -108,21 +109,21 @@
             this.subopcion_documentos,
             this.subopcion_municipio});
             this.opcion_clientes.Name = "opcion_clientes";
-            this.opcion_clientes.Size = new System.Drawing.Size(161, 22);
+            this.opcion_clientes.Size = new System.Drawing.Size(270, 34);
             this.opcion_clientes.Text = "Clientes";
             this.opcion_clientes.Click += new System.EventHandler(this.opcion_clientes_Click);
             // 
             // subopcion_documentos
             // 
             this.subopcion_documentos.Name = "subopcion_documentos";
-            this.subopcion_documentos.Size = new System.Drawing.Size(142, 22);
+            this.subopcion_documentos.Size = new System.Drawing.Size(216, 34);
             this.subopcion_documentos.Text = "Documentos";
             this.subopcion_documentos.Click += new System.EventHandler(this.subopcion_documentos_Click);
             // 
             // subopcion_municipio
             // 
             this.subopcion_municipio.Name = "subopcion_municipio";
-            this.subopcion_municipio.Size = new System.Drawing.Size(142, 22);
+            this.subopcion_municipio.Size = new System.Drawing.Size(216, 34);
             this.subopcion_municipio.Text = "Municipio";
             this.subopcion_municipio.Click += new System.EventHandler(this.subopcion_municipio_Click);
             // 
@@ -131,14 +132,14 @@
             this.opcion_Productos.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.subopcion_ivas});
             this.opcion_Productos.Name = "opcion_Productos";
-            this.opcion_Productos.Size = new System.Drawing.Size(161, 22);
+            this.opcion_Productos.Size = new System.Drawing.Size(270, 34);
             this.opcion_Productos.Text = "Productos";
             this.opcion_Productos.Click += new System.EventHandler(this.opcion_Productos_Click);
             // 
             // subopcion_ivas
             // 
             this.subopcion_ivas.Name = "subopcion_ivas";
-            this.subopcion_ivas.Size = new System.Drawing.Size(94, 22);
+            this.subopcion_ivas.Size = new System.Drawing.Size(145, 34);
             this.subopcion_ivas.Text = "Ivas";
             this.subopcion_ivas.Click += new System.EventHandler(this.subopcion_ivas_Click);
             // 
@@ -147,45 +148,45 @@
             this.opcion_usuarios.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.subopcion_perfiles});
             this.opcion_usuarios.Name = "opcion_usuarios";
-            this.opcion_usuarios.Size = new System.Drawing.Size(161, 22);
+            this.opcion_usuarios.Size = new System.Drawing.Size(270, 34);
             this.opcion_usuarios.Text = "Usuarios";
             this.opcion_usuarios.Click += new System.EventHandler(this.opcion_usuarios_Click);
             // 
             // subopcion_perfiles
             // 
             this.subopcion_perfiles.Name = "subopcion_perfiles";
-            this.subopcion_perfiles.Size = new System.Drawing.Size(112, 22);
+            this.subopcion_perfiles.Size = new System.Drawing.Size(169, 34);
             this.subopcion_perfiles.Text = "Perfiles";
             this.subopcion_perfiles.Click += new System.EventHandler(this.subopcion_perfiles_Click);
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(158, 6);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(267, 6);
             // 
             // opcion_cambiarClave
             // 
             this.opcion_cambiarClave.Name = "opcion_cambiarClave";
-            this.opcion_cambiarClave.Size = new System.Drawing.Size(161, 22);
+            this.opcion_cambiarClave.Size = new System.Drawing.Size(270, 34);
             this.opcion_cambiarClave.Text = "Cambiar clave";
             this.opcion_cambiarClave.Click += new System.EventHandler(this.opcion_cambiarClave_Click);
             // 
             // opcion_cambiarUsuario
             // 
             this.opcion_cambiarUsuario.Name = "opcion_cambiarUsuario";
-            this.opcion_cambiarUsuario.Size = new System.Drawing.Size(161, 22);
+            this.opcion_cambiarUsuario.Size = new System.Drawing.Size(270, 34);
             this.opcion_cambiarUsuario.Text = "Cambiar usuario";
             this.opcion_cambiarUsuario.Click += new System.EventHandler(this.opcion_cambiarUsuario_Click);
             // 
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(158, 6);
+            this.toolStripSeparator4.Size = new System.Drawing.Size(267, 6);
             // 
             // opcion_Salir
             // 
             this.opcion_Salir.Name = "opcion_Salir";
-            this.opcion_Salir.Size = new System.Drawing.Size(161, 22);
+            this.opcion_Salir.Size = new System.Drawing.Size(270, 34);
             this.opcion_Salir.Text = "SALIR";
             this.opcion_Salir.Click += new System.EventHandler(this.opcion_Salir_Click);
             // 
@@ -195,20 +196,20 @@
             this.opcion_nuevaFactura,
             this.opcion_reportes});
             this.pestania_Movimiento.Name = "pestania_Movimiento";
-            this.pestania_Movimiento.Size = new System.Drawing.Size(98, 22);
+            this.pestania_Movimiento.Size = new System.Drawing.Size(149, 29);
             this.pestania_Movimiento.Text = "MOVIMIENTOS";
             // 
             // opcion_nuevaFactura
             // 
             this.opcion_nuevaFactura.Name = "opcion_nuevaFactura";
-            this.opcion_nuevaFactura.Size = new System.Drawing.Size(178, 22);
+            this.opcion_nuevaFactura.Size = new System.Drawing.Size(270, 34);
             this.opcion_nuevaFactura.Text = "Nueva Factura";
             this.opcion_nuevaFactura.Click += new System.EventHandler(this.opcion_nuevaFactura_Click);
             // 
             // opcion_reportes
             // 
             this.opcion_reportes.Name = "opcion_reportes";
-            this.opcion_reportes.Size = new System.Drawing.Size(178, 22);
+            this.opcion_reportes.Size = new System.Drawing.Size(270, 34);
             this.opcion_reportes.Text = "Reporte de Facturas";
             this.opcion_reportes.Click += new System.EventHandler(this.opcion_reportes_Click);
             // 
@@ -217,13 +218,13 @@
             this.pestania_ayuda.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.opcion_informacion});
             this.pestania_ayuda.Name = "pestania_ayuda";
-            this.pestania_ayuda.Size = new System.Drawing.Size(57, 22);
+            this.pestania_ayuda.Size = new System.Drawing.Size(86, 29);
             this.pestania_ayuda.Text = "AYUDA";
             // 
             // opcion_informacion
             // 
             this.opcion_informacion.Name = "opcion_informacion";
-            this.opcion_informacion.Size = new System.Drawing.Size(245, 22);
+            this.opcion_informacion.Size = new System.Drawing.Size(370, 34);
             this.opcion_informacion.Text = "INFORMACION DE APLICACION";
             this.opcion_informacion.Click += new System.EventHandler(this.opcion_informacion_Click);
             // 
@@ -303,13 +304,13 @@
             // opcionNuevaFactura
             // 
             this.opcionNuevaFactura.Name = "opcionNuevaFactura";
-            this.opcionNuevaFactura.Size = new System.Drawing.Size(178, 22);
+            this.opcionNuevaFactura.Size = new System.Drawing.Size(270, 34);
             this.opcionNuevaFactura.Text = "Nueva Factura";
             // 
             // opcionReporteFacturas
             // 
             this.opcionReporteFacturas.Name = "opcionReporteFacturas";
-            this.opcionReporteFacturas.Size = new System.Drawing.Size(178, 22);
+            this.opcionReporteFacturas.Size = new System.Drawing.Size(270, 34);
             this.opcionReporteFacturas.Text = "Reporte de Facturas";
             // 
             // pestaniaAyuda
@@ -327,17 +328,19 @@
             // panelPrincipal
             // 
             this.panelPrincipal.Controls.Add(this.pictureBox1);
-            this.panelPrincipal.Location = new System.Drawing.Point(0, 27);
+            this.panelPrincipal.Location = new System.Drawing.Point(0, 42);
+            this.panelPrincipal.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panelPrincipal.Name = "panelPrincipal";
-            this.panelPrincipal.Size = new System.Drawing.Size(1190, 847);
+            this.panelPrincipal.Size = new System.Drawing.Size(1785, 1303);
             this.panelPrincipal.TabIndex = 1;
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::PuntoDeVentas.Properties.Resources.Ventas011;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 3);
+            this.pictureBox1.Location = new System.Drawing.Point(0, 5);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(1178, 835);
+            this.pictureBox1.Size = new System.Drawing.Size(1767, 1285);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
@@ -356,12 +359,13 @@
             // 
             // menuPrincipal
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1178, 849);
+            this.ClientSize = new System.Drawing.Size(1767, 1050);
             this.Controls.Add(this.panelPrincipal);
             this.Controls.Add(this.menuBar);
             this.MainMenuStrip = this.menuBar;
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "menuPrincipal";
             this.Text = "MENU PRINCIPAL";
             this.Load += new System.EventHandler(this.menuPrincipal_Load);
@@ -402,7 +406,6 @@
         private System.Windows.Forms.ToolStripMenuItem opcion_Productos;
         public System.Windows.Forms.ToolStripMenuItem opcion_usuarios;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
-        private System.Windows.Forms.ToolStripMenuItem opcion_cambiarClave;
         private System.Windows.Forms.ToolStripMenuItem opcion_cambiarUsuario;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
         private System.Windows.Forms.ToolStripMenuItem opcion_Salir;
@@ -415,5 +418,6 @@
         private System.Windows.Forms.ToolStripMenuItem opcion_nuevaFactura;
         public System.Windows.Forms.ToolStripMenuItem opcion_reportes;
         private System.Windows.Forms.ToolStripMenuItem opcion_informacion;
+        public System.Windows.Forms.ToolStripMenuItem opcion_cambiarClave;
     }
 }
