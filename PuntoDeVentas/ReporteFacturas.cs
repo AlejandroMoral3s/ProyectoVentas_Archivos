@@ -128,6 +128,8 @@ namespace PuntoDeVentas
             //DECLARACION DE VARIABLES QUE ALMACENARAN FACTURAS Y DETALLES DE FACTURAS
             int idFacturaRegistroActual = 0;
             string nombreProductoRow = "", cantidadRow = "", subtotalRow = "";
+            string imgRuta = "D:\\U\\archivos\\proyectos\\proyecto3\\ProyectoVentas_Archivos\\PuntoDeVentas\\Resources\\logo.png";
+            string PDFruta = "D:\\U\\archivos\\proyectos\\proyecto3\\prueba.pdf";
 
             int contadorFacturas = 0;
 
@@ -135,7 +137,7 @@ namespace PuntoDeVentas
             //EMPIEZA LA CREACION DEL DOCUMENTO DINAMICO
             Document doc = new Document();
 
-            PdfWriter writer = PdfWriter.GetInstance(doc, new FileStream(@"D:\U\archivos\proyectos\proyecto3\prueba.pdf", FileMode.Create));
+            PdfWriter writer = PdfWriter.GetInstance(doc, new FileStream(PDFruta, FileMode.Create));
 
             doc.AddTitle("REPORTES DE FACTURACION XD");
 
@@ -151,8 +153,7 @@ namespace PuntoDeVentas
 
 
             //IMAGEN
-            string imageURL = "D:\\U\\archivos\\proyectos\\proyecto3\\ProyectoVentas_Archivos\\PuntoDeVentas\\Resources\\logo.png";
-            iTextSharp.text.Image image = iTextSharp.text.Image.GetInstance(imageURL);
+            iTextSharp.text.Image image = iTextSharp.text.Image.GetInstance(imgRuta);
             image.ScaleAbsolute(75f, 75f);  // Set image size.
             image.SetAbsolutePosition(0,0); // Set image position.
 
