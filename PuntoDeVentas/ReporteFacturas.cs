@@ -12,6 +12,7 @@ using System.Xml.Linq;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
 using iTextSharp.text.pdf.draw;
+using Org.BouncyCastle.Utilities.Encoders;
 using static System.Net.Mime.MediaTypeNames;
 
 namespace PuntoDeVentas
@@ -113,6 +114,10 @@ namespace PuntoDeVentas
             buscarProducto();
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            listar();
+        }
 
 
         //BOTON PARA LA EJECUCION DEL PDF
@@ -136,29 +141,54 @@ namespace PuntoDeVentas
 
             doc.Open();
 
+            BaseColor azul = new BaseColor(13, 70, 132);
+            BaseColor verde = new BaseColor(15, 100, 28);
+
+            iTextSharp.text.Font _headingFont = new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.TIMES_ROMAN, 16, iTextSharp.text.Font.NORMAL,azul);
             iTextSharp.text.Font _standardFont = new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.TIMES_ROMAN, 8, iTextSharp.text.Font.NORMAL, BaseColor.BLACK);
             iTextSharp.text.Font fuenteDetalles = new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 8, iTextSharp.text.Font.NORMAL);
 
 
-            iTextSharp.text.Image image = iTextSharp.text.Image.GetInstance("D:\\U\\archivos\\proyectos\\proyecto3\\ProyectoVentas_Archivos\\PuntoDeVentas\\Resources\\logo.png");
-            image.ScaleToFit(60f, 60f);
-            image.SpacingBefore = 60f;
 
-            doc.Add(new Chunk(image,0,0));
+            //IMAGEN
+            string imageURL = "D:\\U\\archivos\\proyectos\\proyecto3\\ProyectoVentas_Archivos\\PuntoDeVentas\\Resources\\logo.png";
+            iTextSharp.text.Image image = iTextSharp.text.Image.GetInstance(imageURL);
+            image.ScaleAbsolute(75f, 75f);  // Set image size.
+            image.SetAbsolutePosition(0,0); // Set image position.
+
+            //INFO
+            Paragraph paragraph = new Paragraph("Reporte de Facturación " +
+                "\nProyecto Fase 3: Punto de Ventas " +
+                "\nManejo e implementación de archivos", _headingFont);
+
+            //TABLA
+            PdfPTable header = new PdfPTable(2);
+            header.WidthPercentage = 100;
+            header.DefaultCell.Border = 0;
+            header.DefaultCell.BorderWidth = 0;
+            header.DefaultCell.BorderColor = BaseColor.WHITE;
+
+            PdfPCell info = new PdfPCell(paragraph);
+            PdfPCell img = new PdfPCell(image);
+            info.BorderColor = BaseColor.WHITE;
+            img.Border = 0;
+            img.HorizontalAlignment = PdfPCell.ALIGN_RIGHT;
+
+            header.AddCell(info);
+            header.AddCell(img);    
 
 
+            doc.Add(header);
+            doc.Add(new Paragraph("\n",_standardFont));
 
-            doc.Add(new Paragraph("REPORTE DE FACTURACION"));
-            doc.Add(Chunk.NEWLINE);
 
-            
 
 
 
             //CICLO PARA LA FACTURACION Y EL DETALLE DE FACTURAS
-            for( int i = 0; i < dataFacturas.Rows.Count-1; i++ )
+            for ( int i = 0; i < dataFacturas.Rows.Count-1; i++ )
             {
-                LineSeparator line = new LineSeparator(1f, 100f, BaseColor.RED, Element.ALIGN_LEFT, 1);
+                LineSeparator line = new LineSeparator(1f, 100f, verde, Element.ALIGN_LEFT, 1);
                 doc.Add(line);
                 doc.Add(new Phrase("REGISTRO "+(i+1)+" "));
                 
@@ -170,7 +200,7 @@ namespace PuntoDeVentas
                 buscarDetalles(idFacturaRegistroActual);
 
 
-                PdfPTable tablaFactura = new PdfPTable(5);
+                PdfPTable tablaFactura = new PdfPTable(6);
                 tablaFactura.WidthPercentage = 100;
 
                 // Configuramos el título de las columnas de la tabla
@@ -188,6 +218,9 @@ namespace PuntoDeVentas
                 PdfPCell clIdCliente = new PdfPCell(new Phrase("CLIENTE", _standardFont));
                 clIdCliente.BorderWidth = 0.5f;
 
+                PdfPCell clNitCliente = new PdfPCell(new Phrase("NIT", _standardFont));
+                clNitCliente.BorderWidth = 0.5f;
+
                 PdfPCell clTotalFactura = new PdfPCell(new Phrase("TOTAL FACTURA", _standardFont));
                 clTotalFactura.BorderWidth = 0.5f;
 
@@ -196,6 +229,7 @@ namespace PuntoDeVentas
                 tablaFactura.AddCell(clIdUsuario);
                 tablaFactura.AddCell(clFechaEmision);
                 tablaFactura.AddCell(clIdCliente);
+                tablaFactura.AddCell(clNitCliente);
                 tablaFactura.AddCell(clTotalFactura);
 
                 // Llenamos la tabla con información
@@ -211,6 +245,9 @@ namespace PuntoDeVentas
                 clIdCliente = new PdfPCell(new Phrase(dataFacturas.Rows[i].Cells["id_cliente"].Value.ToString(), _standardFont));
                 clIdCliente.BorderWidth = 0.75f;
 
+                clNitCliente = new PdfPCell(new Phrase(dataFacturas.Rows[i].Cells["nit_cliente"].Value.ToString(), _standardFont));
+                clNitCliente.BorderWidth = 0.75f;
+
                 clTotalFactura = new PdfPCell(new Phrase(dataFacturas.Rows[i].Cells["total_factura"].Value.ToString(), _standardFont));
                 clTotalFactura.BorderWidth = 0.75f;
 
@@ -219,6 +256,7 @@ namespace PuntoDeVentas
                 tablaFactura.AddCell(clIdUsuario);
                 tablaFactura.AddCell(clFechaEmision);
                 tablaFactura.AddCell(clIdCliente);
+                tablaFactura.AddCell(clNitCliente); 
                 tablaFactura.AddCell(clTotalFactura);
 
 
@@ -327,5 +365,6 @@ namespace PuntoDeVentas
             MessageBox.Show("Reporte generado con éxito");
 
         }
+
     }
 }

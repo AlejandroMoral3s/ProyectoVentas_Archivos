@@ -10,8 +10,6 @@ namespace PuntoDeVentas
 {
     public class ReporteFacturasSql
     {
-        //INCLUIR NIT
-        //(select nit_cliente from Cliente where id_cliente= f.id_cliente) as nit
 
         public DataTable buscarNit(string nit)
         {
@@ -20,7 +18,7 @@ namespace PuntoDeVentas
             SqlConnection con = new SqlConnection();
             try
             { 
-                string sql = "Select f.id_factura, (select nombres from Usuario where id_usuario= f.id_usuario) as usuario, (select nombres from Cliente where id_cliente= f.id_cliente) as cliente, f.fecha_emision,f.total_factura " +
+                string sql = "Select f.id_factura, (select nombres from Usuario where id_usuario= f.id_usuario) as id_usuario, (select nombres from Cliente where id_cliente= f.id_cliente) as id_cliente,(select nit_cliente from Cliente where id_cliente= f.id_cliente) as nit_cliente, f.fecha_emision,f.total_factura " +
                     "from Factura f join Cliente c on f.id_cliente = c.id_cliente where c.nit_cliente = '"+nit+"'";
                 
                 con = Conexion.crearInstancia().crearConexion();
@@ -49,7 +47,7 @@ namespace PuntoDeVentas
             SqlConnection con = new SqlConnection();
             try
             {
-                string sql = "Select f.id_factura, (select nombres from Usuario where id_usuario= f.id_usuario) as usuario, (select nombres from Cliente where id_cliente= f.id_cliente) as cliente, f.fecha_emision,f.total_factura from Factura f where fecha_emision = '" + fecha+"'";
+                string sql = "Select f.id_factura, (select nombres from Usuario where id_usuario= f.id_usuario) as id_usuario, (select nombres from Cliente where id_cliente= f.id_cliente) as id_cliente,(select nit_cliente from Cliente where id_cliente= f.id_cliente) as nit_cliente, f.fecha_emision,f.total_factura from Factura f where fecha_emision = '" + fecha+"'";
                 con = Conexion.crearInstancia().crearConexion();
                 SqlCommand comando = new SqlCommand(sql, con);
                 con.Open();
@@ -75,7 +73,7 @@ namespace PuntoDeVentas
             SqlConnection con = new SqlConnection();
             try
             {
-                string sql = "Select f.id_factura, (select nombres from Usuario where id_usuario= f.id_usuario) as usuario, (select nombres from Cliente where id_cliente= f.id_cliente) as cliente, f.fecha_emision,f.total_factura " +
+                string sql = "Select f.id_factura, (select nombres from Usuario where id_usuario= f.id_usuario) as id_usuario, (select nombres from Cliente where id_cliente= f.id_cliente) as id_cliente,(select nit_cliente from Cliente where id_cliente= f.id_cliente) as nit_cliente, f.fecha_emision,f.total_factura " +
                     "from Factura f join Detalle_factura df on f.id_factura = df.id_factura " +
                     "join Producto p on df.id_producto = p.id_producto where p.nombre = '"+nombre_producto+"'";
                 
@@ -133,7 +131,7 @@ namespace PuntoDeVentas
             SqlConnection con = new SqlConnection();
             try
             {
-                string sql = "Select f.id_factura, (select nombres from Usuario where id_usuario= f.id_usuario) as usuario, (select nombres from Cliente where id_cliente= f.id_cliente) as cliente, f.fecha_emision,f.total_factura from Factura f";
+                string sql = "Select f.id_factura, (select nombres from Usuario where id_usuario= f.id_usuario) as id_usuario, (select nombres from Cliente where id_cliente= f.id_cliente) as id_cliente,(select nit_cliente from Cliente where id_cliente= f.id_cliente) as nit_cliente, f.fecha_emision,f.total_factura from Factura f";
                 con = Conexion.crearInstancia().crearConexion();
                 SqlCommand comando = new SqlCommand(sql, con);
                 con.Open();
