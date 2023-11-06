@@ -36,6 +36,9 @@ namespace PuntoDeVentas
             listarClientes();
             listarProductos();
             setIdUsuario();
+
+            formatoClientes();
+            
         }
 
 
@@ -93,10 +96,19 @@ namespace PuntoDeVentas
         }
 
 
+        private void formatoClientes()
+        {
+            datagridClientes.Columns[0].Visible = false;
+            datagridClientes.Columns[1].Visible = false;
+            datagridClientes.Columns[2].Visible = false;
+            datagridClientes.Columns[3].Visible = false;
+
+            datagridClientes.Columns[4].Width = 80;
+        }
+
         private void limpiar()
         {
             error.Clear();
-            txtIdUsuario.Clear();
             //txtIdFactura.Clear();
             txtId_Cliente.Clear();
             txtIdProducto.Clear();
@@ -104,6 +116,7 @@ namespace PuntoDeVentas
             txtSubtotal.Clear();
             txtIdDetalle.Clear();
             txtTotalFactura.Clear();
+            
             
         }
 
@@ -422,6 +435,7 @@ namespace PuntoDeVentas
                     txtIdFactura.Text = (int.Parse(txtIdFactura.Text)+1).ToString();*/
 
                     extraer_ultimo_id_Factura();
+                    extraer_ultimo_id_detalle();
                     listarDetalles();
                     crearFactura_permitido = true;
                 }

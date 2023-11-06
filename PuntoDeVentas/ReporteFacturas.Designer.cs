@@ -42,46 +42,49 @@
             this.txtFecha = new System.Windows.Forms.DateTimePicker();
             this.dataDetalles = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataFacturas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataDetalles)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(290, 38);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Font = new System.Drawing.Font("Times New Roman", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label1.Location = new System.Drawing.Point(342, 49);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(544, 55);
+            this.label1.Size = new System.Drawing.Size(408, 42);
             this.label1.TabIndex = 0;
             this.label1.Text = "REPORTE FACTURAS";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(154, 203);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label2.Location = new System.Drawing.Point(280, 164);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(109, 20);
+            this.label2.Size = new System.Drawing.Size(103, 16);
             this.label2.TabIndex = 1;
             this.label2.Text = "NIT CLIENTE:";
             // 
             // txtFiltrarNit
             // 
-            this.txtFiltrarNit.Location = new System.Drawing.Point(80, 245);
-            this.txtFiltrarNit.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtFiltrarNit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtFiltrarNit.Location = new System.Drawing.Point(248, 203);
             this.txtFiltrarNit.Name = "txtFiltrarNit";
-            this.txtFiltrarNit.Size = new System.Drawing.Size(268, 26);
+            this.txtFiltrarNit.Size = new System.Drawing.Size(180, 22);
             this.txtFiltrarNit.TabIndex = 2;
             this.txtFiltrarNit.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // btnFiltrarNit
             // 
-            this.btnFiltrarNit.Location = new System.Drawing.Point(130, 302);
-            this.btnFiltrarNit.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnFiltrarNit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFiltrarNit.Location = new System.Drawing.Point(283, 252);
             this.btnFiltrarNit.Name = "btnFiltrarNit";
-            this.btnFiltrarNit.Size = new System.Drawing.Size(152, 52);
+            this.btnFiltrarNit.Size = new System.Drawing.Size(101, 34);
             this.btnFiltrarNit.TabIndex = 3;
             this.btnFiltrarNit.Text = "FILTRAR";
             this.btnFiltrarNit.UseVisualStyleBackColor = true;
@@ -90,19 +93,18 @@
             // dataFacturas
             // 
             this.dataFacturas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataFacturas.Location = new System.Drawing.Point(64, 429);
-            this.dataFacturas.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.dataFacturas.Location = new System.Drawing.Point(238, 334);
             this.dataFacturas.Name = "dataFacturas";
             this.dataFacturas.RowHeadersWidth = 62;
-            this.dataFacturas.Size = new System.Drawing.Size(1059, 588);
+            this.dataFacturas.Size = new System.Drawing.Size(706, 382);
             this.dataFacturas.TabIndex = 4;
             // 
             // btnPdf
             // 
-            this.btnPdf.Location = new System.Drawing.Point(1161, 689);
-            this.btnPdf.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnPdf.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPdf.Location = new System.Drawing.Point(452, 753);
             this.btnPdf.Name = "btnPdf";
-            this.btnPdf.Size = new System.Drawing.Size(152, 52);
+            this.btnPdf.Size = new System.Drawing.Size(101, 34);
             this.btnPdf.TabIndex = 5;
             this.btnPdf.Text = "GENERAR PDF";
             this.btnPdf.UseVisualStyleBackColor = true;
@@ -110,10 +112,10 @@
             // 
             // btnFiltrarFecha
             // 
-            this.btnFiltrarFecha.Location = new System.Drawing.Point(528, 302);
-            this.btnFiltrarFecha.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnFiltrarFecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFiltrarFecha.Location = new System.Drawing.Point(560, 252);
             this.btnFiltrarFecha.Name = "btnFiltrarFecha";
-            this.btnFiltrarFecha.Size = new System.Drawing.Size(152, 52);
+            this.btnFiltrarFecha.Size = new System.Drawing.Size(101, 34);
             this.btnFiltrarFecha.TabIndex = 8;
             this.btnFiltrarFecha.Text = "FILTRAR";
             this.btnFiltrarFecha.UseVisualStyleBackColor = true;
@@ -122,19 +124,20 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(537, 203);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label3.Location = new System.Drawing.Point(544, 164);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(140, 20);
+            this.label3.Size = new System.Drawing.Size(127, 16);
             this.label3.TabIndex = 6;
             this.label3.Text = "FECHA EMISION:";
             // 
             // btnFiltrarProducto
             // 
-            this.btnFiltrarProducto.Location = new System.Drawing.Point(904, 302);
-            this.btnFiltrarProducto.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnFiltrarProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFiltrarProducto.Location = new System.Drawing.Point(814, 252);
             this.btnFiltrarProducto.Name = "btnFiltrarProducto";
-            this.btnFiltrarProducto.Size = new System.Drawing.Size(152, 52);
+            this.btnFiltrarProducto.Size = new System.Drawing.Size(101, 34);
             this.btnFiltrarProducto.TabIndex = 11;
             this.btnFiltrarProducto.Text = "FILTRAR";
             this.btnFiltrarProducto.UseVisualStyleBackColor = true;
@@ -142,57 +145,70 @@
             // 
             // txtBuscarProducto
             // 
-            this.txtBuscarProducto.Location = new System.Drawing.Point(854, 245);
-            this.txtBuscarProducto.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtBuscarProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBuscarProducto.Location = new System.Drawing.Point(764, 203);
             this.txtBuscarProducto.Name = "txtBuscarProducto";
-            this.txtBuscarProducto.Size = new System.Drawing.Size(268, 26);
+            this.txtBuscarProducto.Size = new System.Drawing.Size(180, 22);
             this.txtBuscarProducto.TabIndex = 10;
             this.txtBuscarProducto.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(898, 203);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label4.Location = new System.Drawing.Point(774, 164);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(177, 20);
+            this.label4.Size = new System.Drawing.Size(165, 16);
             this.label4.TabIndex = 9;
             this.label4.Text = "NOMBRE PRODUCTO:";
             // 
             // txtFecha
             // 
-            this.txtFecha.Location = new System.Drawing.Point(464, 245);
-            this.txtFecha.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtFecha.Location = new System.Drawing.Point(504, 203);
             this.txtFecha.Name = "txtFecha";
-            this.txtFecha.Size = new System.Drawing.Size(298, 26);
+            this.txtFecha.Size = new System.Drawing.Size(200, 20);
             this.txtFecha.TabIndex = 12;
             // 
             // dataDetalles
             // 
             this.dataDetalles.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataDetalles.Location = new System.Drawing.Point(1048, 1054);
-            this.dataDetalles.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.dataDetalles.Location = new System.Drawing.Point(970, 674);
             this.dataDetalles.Name = "dataDetalles";
             this.dataDetalles.RowHeadersWidth = 62;
-            this.dataDetalles.Size = new System.Drawing.Size(75, 32);
+            this.dataDetalles.Size = new System.Drawing.Size(50, 21);
             this.dataDetalles.TabIndex = 13;
             this.dataDetalles.Visible = false;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(1161, 608);
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(618, 753);
+            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(152, 52);
+            this.button1.Size = new System.Drawing.Size(101, 34);
             this.button1.TabIndex = 14;
             this.button1.Text = "TODAS LAS FACTURAS";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::PuntoDeVentas.Properties.Resources.agregar;
+            this.pictureBox1.Location = new System.Drawing.Point(811, 28);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(104, 88);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 15;
+            this.pictureBox1.TabStop = false;
+            // 
             // ReporteFacturas
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1512, 1046);
+            this.BackColor = System.Drawing.Color.MediumOrchid;
+            this.ClientSize = new System.Drawing.Size(1177, 872);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.dataDetalles);
             this.Controls.Add(this.txtFecha);
@@ -207,12 +223,12 @@
             this.Controls.Add(this.txtFiltrarNit);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "ReporteFacturas";
             this.Text = "ReporteFacturas";
             this.Load += new System.EventHandler(this.ReporteFacturas_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataFacturas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataDetalles)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -234,5 +250,6 @@
         private System.Windows.Forms.DateTimePicker txtFecha;
         private System.Windows.Forms.DataGridView dataDetalles;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

@@ -244,6 +244,12 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\agregar.png" />
+    <None Include="Resources\borrar.png" />
+    <None Include="Resources\borrarDetalles.png" />
+    <None Include="Resources\buscar.png" />
+    <None Include="Resources\cancelar.png" />
+    <None Include="Resources\editar.png" />
     <Content Include="Resources\logo.png" />
     <None Include="Resources\logo1.png" />
   </ItemGroup>

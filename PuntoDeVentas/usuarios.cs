@@ -219,6 +219,7 @@ namespace PuntoDeVentas
                     error.SetError(txtUserName, "Ingrese un nombre de usuario diferente");
                     return;
                 }
+                
 
 
                 //GENERAR INSTANCIA A LA CLASE USUARIO
@@ -267,7 +268,6 @@ namespace PuntoDeVentas
         {
             error.Clear();
             txtIdPerfil.Clear();
-            txtIdUsuario.Clear();
             txtNombre.Clear();
             txtApellido.Clear();
             txtDireccion.Clear();
@@ -304,6 +304,9 @@ namespace PuntoDeVentas
             txtClave.Text = datagridUsuarios.CurrentRow.Cells["clave"].Value.ToString();
             txtConfirmacion.Text = datagridUsuarios.CurrentRow.Cells["confirmacion"].Value.ToString();
             
+            btnCrear.Enabled = false;
+            btnActualizar.Enabled = true;
+
         }
 
         //METODO PARA ACTUALIZAR REGISTRO
@@ -410,6 +413,8 @@ namespace PuntoDeVentas
                     MensajeError(respuesta);
                 }
 
+                btnActualizar.Enabled = false;
+                btnCrear.Enabled = true;
 
             }
             catch (Exception ex)
@@ -463,6 +468,9 @@ namespace PuntoDeVentas
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             limpiar();
+            extraer_ultimo_id();
+            btnCrear.Enabled = true;
+            btnActualizar.Enabled = false;
         }
 
 
@@ -504,6 +512,10 @@ namespace PuntoDeVentas
             txtClave.Text = datagridUsuarios.CurrentRow.Cells["clave"].Value.ToString();
             txtConfirmacion.Text = datagridUsuarios.CurrentRow.Cells["confirmacion"].Value.ToString();
 
+            btnActualizar.Enabled = true;
+            btnCrear.Enabled = false;
+
+
         }
         private void btnSiguiente_Click(object sender, EventArgs e)
         {
@@ -531,6 +543,9 @@ namespace PuntoDeVentas
             txtClave.Text = datagridUsuarios.CurrentRow.Cells["clave"].Value.ToString();
             txtConfirmacion.Text = datagridUsuarios.CurrentRow.Cells["confirmacion"].Value.ToString();
 
+            btnActualizar.Enabled = true;
+            btnCrear.Enabled = false;
+
         }
         private void btnPrimero_Click(object sender, EventArgs e)
         {
@@ -549,6 +564,9 @@ namespace PuntoDeVentas
             txtClave.Text = datagridUsuarios.CurrentRow.Cells["clave"].Value.ToString();
             txtConfirmacion.Text = datagridUsuarios.CurrentRow.Cells["confirmacion"].Value.ToString();
 
+            btnActualizar.Enabled = true;
+            btnCrear.Enabled = false;
+
         }
         private void btnUltimo_Click(object sender, EventArgs e)
         {
@@ -566,6 +584,10 @@ namespace PuntoDeVentas
             txtUserName.Text = datagridUsuarios.CurrentRow.Cells["nombre_usuario"].Value.ToString();
             txtClave.Text = datagridUsuarios.CurrentRow.Cells["clave"].Value.ToString();
             txtConfirmacion.Text = datagridUsuarios.CurrentRow.Cells["confirmacion"].Value.ToString();
+
+            btnActualizar.Enabled = true;
+            btnCrear.Enabled = false;
+
         }
     }
 }

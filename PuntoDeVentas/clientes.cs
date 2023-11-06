@@ -164,9 +164,9 @@ namespace PuntoDeVentas
             datagridClientes.Columns[0].Width = 70;
             datagridClientes.Columns[1].Width = 80;
             datagridClientes.Columns[2].Width = 80;
-            datagridClientes.Columns[3].Width = 150;
-            datagridClientes.Columns[4].Width = 250;
-            datagridClientes.Columns[5].Width = 250;
+            datagridClientes.Columns[3].Width = 100;
+            datagridClientes.Columns[4].Width = 100;
+            datagridClientes.Columns[5].Width = 150;
             datagridClientes.Columns[6].Width = 150;
             datagridClientes.Columns[7].Width = 150;
             datagridClientes.Columns[8].Width = 120;
@@ -237,18 +237,7 @@ namespace PuntoDeVentas
                     error.SetError(txtTelefono, "Ingrese el numero de telefono");
                     return;
                 }
-                if (check.esNum(txtIdDocumento.Text)!=("int"))
-                {
-                    MensajeError("Los id solo pueden ser números");
-                    error.SetError(txtIdDocumento, "Ingresa un id válido");
-                    return;
-                }
-                if (check.esNum(txtIdMunicipio.Text)!=("int"))
-                {
-                    MensajeError("Los id solo pueden ser números");
-                    error.SetError(txtIdMunicipio, "Ingresa un id válido");
-                    return;
-                }
+                
                 if (check.esNum(txtTelefono.Text)!=("int"))
                 {
                     MensajeError("Los teléfonos solo pueden contener caracteres numéricos");
@@ -365,18 +354,6 @@ namespace PuntoDeVentas
                     error.SetError(txtTelefono, "Ingrese el numero de telefono");
                     return;
                 }
-                if (check.esNum(txtIdDocumento.Text) != ("int"))
-                {
-                    MensajeError("Los id solo pueden ser números");
-                    error.SetError(txtIdDocumento, "Ingresa un id válido");
-                    return;
-                }
-                if (check.esNum(txtIdMunicipio.Text) != ("int"))
-                {
-                    MensajeError("Los id solo pueden ser números");
-                    error.SetError(txtIdMunicipio, "Ingresa un id válido");
-                    return;
-                }
                 if (check.esNum(txtTelefono.Text) != ("int"))
                 {
                     MensajeError("Los teléfonos solo pueden contener caracteres numéricos");
@@ -423,6 +400,8 @@ namespace PuntoDeVentas
                     MensajeError(respuesta);
                 }
 
+                btnCrear.Enabled = true;
+                btnActualizar.Enabled = false;
 
             }
             catch (Exception ex)
@@ -492,11 +471,18 @@ namespace PuntoDeVentas
             calendarioNacimiento.Text = datagridClientes.CurrentRow.Cells["fecha_nacimiento"].Value.ToString();
             calendarioIngreso.Text = datagridClientes.CurrentRow.Cells["fecha_ingreso"].Value.ToString();
             txtNoDocumento.Text = datagridClientes.CurrentRow.Cells["no_documento"].Value.ToString();
+
+            btnCrear.Enabled = false;
+            btnActualizar.Enabled = true;
+
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             limpiar();
+            extraer_ultimo_id();
+            btnActualizar.Enabled = false;
+            btnCrear.Enabled = true;
         }
 
 
@@ -542,6 +528,9 @@ namespace PuntoDeVentas
             calendarioIngreso.Text = datagridClientes.CurrentRow.Cells["fecha_ingreso"].Value.ToString();
             txtNoDocumento.Text = datagridClientes.CurrentRow.Cells["no_documento"].Value.ToString();
 
+            btnActualizar.Enabled = true;
+            btnCrear.Enabled = false;
+
 
         }
 
@@ -572,6 +561,9 @@ namespace PuntoDeVentas
             calendarioIngreso.Text = datagridClientes.CurrentRow.Cells["fecha_ingreso"].Value.ToString();
             txtNoDocumento.Text = datagridClientes.CurrentRow.Cells["no_documento"].Value.ToString();
 
+            btnActualizar.Enabled = true;
+            btnCrear.Enabled = false;
+
         }
 
         private void btnPrimero_Click(object sender, EventArgs e)
@@ -592,6 +584,10 @@ namespace PuntoDeVentas
             calendarioNacimiento.Text = datagridClientes.CurrentRow.Cells["fecha_nacimiento"].Value.ToString();
             calendarioIngreso.Text = datagridClientes.CurrentRow.Cells["fecha_ingreso"].Value.ToString();
             txtNoDocumento.Text = datagridClientes.CurrentRow.Cells["no_documento"].Value.ToString();
+
+            btnActualizar.Enabled = true;
+            btnCrear.Enabled = false;
+
         }
 
         private void btnUltimo_Click(object sender, EventArgs e)
@@ -613,6 +609,8 @@ namespace PuntoDeVentas
             calendarioIngreso.Text = datagridClientes.CurrentRow.Cells["fecha_ingreso"].Value.ToString();
             txtNoDocumento.Text = datagridClientes.CurrentRow.Cells["no_documento"].Value.ToString();
 
+            btnActualizar.Enabled = true;
+            btnCrear.Enabled = false;
 
         }
     }

@@ -97,6 +97,9 @@ namespace PuntoDeVentas
 
         private void btnCrear_Click(object sender, EventArgs e)
         {
+
+            Validaciones validaciones = new Validaciones();
+
             try
             {
                 string respuesta = "";
@@ -112,6 +115,14 @@ namespace PuntoDeVentas
                     error.SetError(txtNombre, "Ingrese el nombre");
                     return;
                 }
+
+                if (validaciones.esNum(txtNombre.Text) != null)
+                {
+                    MensajeError("Los perfiles de preferencia no deben contener numeros.");
+                    error.SetError(txtNombre, "Corrija este campo");
+                    return;
+                }
+
                 //GENERAR INSTANCIA A LA CLASE PERFILES
                 perfilesObj obj = new perfilesObj();
                 obj.id = int.Parse(txtId.Text);
@@ -153,11 +164,7 @@ namespace PuntoDeVentas
             error.Clear();
         }
 
-        private void btnLimpiar_Click(object sender, EventArgs e)
-        {
-            limpiar();
-        }
-
+        
         private void MensajeError(string msg)
         {
             MessageBox.Show(msg, "Control de informacion", MessageBoxButtons.OK, MessageBoxIcon.Error);   
@@ -172,6 +179,8 @@ namespace PuntoDeVentas
 
         private void dataPerfiles_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
+            btnEditar.Enabled = true;
+            btnCrear.Enabled = false;
             limpiar();
             txtId.Text = dataPerfiles.CurrentRow.Cells["id_perfil"].Value.ToString();
             txtNombre.Text = dataPerfiles.CurrentRow.Cells["nombre"].Value.ToString();
@@ -179,6 +188,8 @@ namespace PuntoDeVentas
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
+
+            Validaciones validaciones = new Validaciones();
 
             try
             {
@@ -195,6 +206,14 @@ namespace PuntoDeVentas
                     error.SetError(txtNombre, "Ingrese el nombre");
                     return;
                 }
+                if (validaciones.esNum(txtNombre.Text) != null)
+                {
+                    MensajeError("Los perfiles de preferencia no deben contener numeros.");
+                    error.SetError(txtNombre, "Corrija este campo");
+                    return;
+                }
+
+
                 //GENERAR INSTANCIA A LA CLASE PERFILES
                 perfilesObj obj = new perfilesObj();
                 obj.id = int.Parse(txtId.Text);
@@ -216,6 +235,9 @@ namespace PuntoDeVentas
                 {
                     MensajeError(respuesta);
                 }
+
+                btnEditar.Enabled = false;
+                btnCrear.Enabled = true;
 
 
             }

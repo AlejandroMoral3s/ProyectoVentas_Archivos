@@ -112,6 +112,7 @@ namespace PuntoDeVentas
         private void btnCrear_Click(object sender, EventArgs e)
         {
             error.Clear();
+            Validaciones validaciones = new Validaciones();
             try
             {
                 string respuesta = "";
@@ -127,6 +128,14 @@ namespace PuntoDeVentas
                     error.SetError(txtNombre, "Ingrese el nombre");
                     return;
                 }
+
+                if (validaciones.esNum(txtNombre.Text) != null)
+                {
+                    MensajeError("Los municipios de preferencia no deben contener numeros.");
+                    error.SetError(txtNombre, "Corrija este campo");
+                    return;
+                }
+
                 //GENERAR INSTANCIA A LA CLASE PERFILES
                 municipioObj obj = new municipioObj();
                 obj.id_municipio = int.Parse(txtId.Text);
@@ -161,11 +170,16 @@ namespace PuntoDeVentas
             limpiar();
             txtId.Text = dataMunicipios.CurrentRow.Cells["id_municipio"].Value.ToString();
             txtNombre.Text = dataMunicipios.CurrentRow.Cells["nombre"].Value.ToString();
+
+            btnCrear.Enabled = false;
+            btnEditar.Enabled = true;
+
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
             error.Clear();
+            Validaciones validaciones = new Validaciones();
             try
             {
                 string respuesta = "";
@@ -181,6 +195,14 @@ namespace PuntoDeVentas
                     error.SetError(txtNombre, "Ingrese el nombre");
                     return;
                 }
+
+                if (validaciones.esNum(txtNombre.Text) != null)
+                {
+                    MensajeError("Los municipios de preferencia no deben contener numeros.");
+                    error.SetError(txtNombre, "Corrija este campo");
+                    return;
+                }
+
                 //GENERAR INSTANCIA A LA CLASE MUNICIPIOS
                 municipioObj obj = new municipioObj();
                 obj.id_municipio = int.Parse(txtId.Text);
@@ -201,6 +223,9 @@ namespace PuntoDeVentas
                 {
                     MensajeError(respuesta);
                 }
+
+                btnEditar.Enabled = false;
+                btnCrear.Enabled = true;
 
 
             }
@@ -253,9 +278,7 @@ namespace PuntoDeVentas
             }
         }
 
-        private void btnLimpiar_Click(object sender, EventArgs e)
-        {
-            limpiar();
-        }
+
+
     }
 }

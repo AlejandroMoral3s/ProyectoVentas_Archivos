@@ -110,10 +110,9 @@ namespace PuntoDeVentas
             buscar();
         }
 
-        private void btnLimpiar_Click(object sender, EventArgs e)
-        {
-            limpiar();
-        }
+
+
+
 
         private void btnCrear_Click(object sender, EventArgs e)
         {
@@ -133,6 +132,13 @@ namespace PuntoDeVentas
                     error.SetError(txtTipo, "Ingrese el nombre");
                     return;
                 }
+                if (check.esNum(txtTipo.Text) != null)
+                {
+                    MensajeError("El tipo de preferencia no debe ser numerico.");
+                    error.SetError(txtTipo, "Ingrese el tipo");
+                    return;
+                }
+
                 //GENERAR INSTANCIA A LA CLASE PERFILES
                 documentoObj obj = new documentoObj();
                 obj.id_documento = int.Parse(txtId.Text);
@@ -167,10 +173,17 @@ namespace PuntoDeVentas
             limpiar();
             txtId.Text = dataDocumentos.CurrentRow.Cells["id_documento"].Value.ToString();
             txtTipo.Text = dataDocumentos.CurrentRow.Cells["tipo"].Value.ToString();
+
+            btnCrear.Enabled = false;
+            btnEditar.Enabled = true;
+
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
+
+            Validaciones validaciones = new Validaciones();
+
             try
             {
                 string respuesta = "";
@@ -186,6 +199,14 @@ namespace PuntoDeVentas
                     error.SetError(txtTipo, "Ingrese el tipo");
                     return;
                 }
+
+                if(validaciones.esNum(txtTipo.Text) != null)
+                {
+                    MensajeError("El tipo de preferencia no debe ser numerico.");
+                    error.SetError(txtTipo, "Ingrese el tipo");
+                    return;
+                }
+
                 //GENERAR INSTANCIA A LA CLASE PERFILES
                 documentoObj obj = new documentoObj();
                 obj.id_documento = int.Parse(txtId.Text);
@@ -207,6 +228,8 @@ namespace PuntoDeVentas
                     MensajeError(respuesta);
                 }
 
+                btnEditar.Enabled = false;
+                btnCrear.Enabled = true;
 
             }
             catch (Exception ex)

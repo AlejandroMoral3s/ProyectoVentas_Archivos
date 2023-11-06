@@ -112,6 +112,9 @@ namespace PuntoDeVentas
         private void btnCrear_Click(object sender, EventArgs e)
         {
             error.Clear();
+
+            Validaciones validaciones = new Validaciones();
+
             try
             {
                 string respuesta = "";
@@ -130,6 +133,12 @@ namespace PuntoDeVentas
                 if (check.esNum(txtPorcentaje.Text) == null){
                     MensajeError("El porcentaje debe ser sun valor numérico.");
                     error.SetError(txtPorcentaje, "Ingrese el porcentaje");
+                    return;
+                }
+                if (validaciones.esNum(txtPorcentaje.Text) == null)
+                {
+                    MensajeError("Los ivas de preferencia deben ser numeros.");
+                    error.SetError(txtPorcentaje, "Corrija este campo");
                     return;
                 }
 
@@ -167,11 +176,18 @@ namespace PuntoDeVentas
             limpiar();
             txtId.Text = dataIva.CurrentRow.Cells["id_iva"].Value.ToString();
             txtPorcentaje.Text = dataIva.CurrentRow.Cells["nombre"].Value.ToString();
+
+            btnCrear.Enabled = false;
+            btnEditar.Enabled = true;
+
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
             error.Clear();
+
+            Validaciones validaciones = new Validaciones();
+
             try
             {
                 string respuesta = "";
@@ -193,6 +209,14 @@ namespace PuntoDeVentas
                     error.SetError(txtPorcentaje, "Ingrese el porcentaje");
                     return;
                 }
+
+                if (validaciones.esNum(txtPorcentaje.Text) == null)
+                {
+                    MensajeError("Los ivas de preferencia deben ser numeros.");
+                    error.SetError(txtPorcentaje, "Corrija este campo");
+                    return;
+                }
+
                 //GENERAR INSTANCIA A LA CLASE PERFILES
                 ivaObj obj = new ivaObj();
                 obj.id_iva = int.Parse(txtId.Text);
@@ -214,6 +238,8 @@ namespace PuntoDeVentas
                     MensajeError(respuesta);
                 }
 
+                btnCrear.Enabled = true;
+                btnEditar.Enabled = false;
 
             }
             catch (Exception ex)

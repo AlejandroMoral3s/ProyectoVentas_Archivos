@@ -151,7 +151,7 @@ namespace PuntoDeVentas
             try
             {
                 string sql = "Update Cliente set id_documento = '"+obj.id_documento+"', id_municipio = '"+obj.id_municipio + "', no_documento = '" + obj.noDocumento +
-                    "', nombres = '" + obj.nombres + "', apellidos = '" + obj.apellidos +
+                    "', nombres = '" + obj.nombres + "', apellidos = '" + obj.apellidos + "', nit_cliente = '" + obj.nit +
                     "', direccion = '" + obj.direccion + "', telefono = '" + obj.telefono + "', fecha_nacimiento = '" + obj.fecha_nacimiento +
                     "', fecha_ingreso = '" + obj.fecha_ingreso + "' where id_cliente = '" + obj.id_cliente + "'";
                 

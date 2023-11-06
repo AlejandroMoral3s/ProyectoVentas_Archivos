@@ -128,8 +128,8 @@ namespace PuntoDeVentas
             //DECLARACION DE VARIABLES QUE ALMACENARAN FACTURAS Y DETALLES DE FACTURAS
             int idFacturaRegistroActual = 0;
             string nombreProductoRow = "", cantidadRow = "", subtotalRow = "";
-            string imgRuta = "D:\\U\\archivos\\proyectos\\proyecto3\\ProyectoVentas_Archivos\\PuntoDeVentas\\Resources\\logo.png";
-            string PDFruta = "D:\\U\\archivos\\proyectos\\proyecto3\\prueba.pdf";
+            string imgRuta = "C:\\Users\\Alejandro Morales\\source\\repos\\PuntoDeVentas\\PuntoDeVentas\\Resources\\logo.png";
+            string PDFruta = "C:\\Users\\Alejandro Morales\\Desktop\\ProyectoArchivosPdf\\prueba.pdf";
 
             int contadorFacturas = 0;
 

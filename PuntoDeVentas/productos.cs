@@ -128,7 +128,6 @@ namespace PuntoDeVentas
         private void limpiar()
         {
             error.Clear();
-            txtIdProducto.Clear();
             txtIdIva.Clear();
             txtNombre.Clear();
             txtPrecio.Clear();
@@ -195,10 +194,10 @@ namespace PuntoDeVentas
                     error.SetError(txtPrecio, "Ingrese el Precio");
                     return;
                 }
-                if (check.esNum(txtIdIva.Text) !="int")
+                if(check.esNum(txtNombre.Text) != null)
                 {
-                    MensajeError("Los id deben ser números enteros.");
-                    error.SetError(txtIdIva, "Ingrese el id_iva");
+                    MensajeError("El nombre del producto no puede ser de tipo numerico.");
+                    error.SetError(txtPrecio, "Ingrese el nombre correctamente.");
                     return;
                 }
 
@@ -280,10 +279,10 @@ namespace PuntoDeVentas
                     error.SetError(txtPrecio, "Ingrese el Precio");
                     return;
                 }
-                if (check.esNum(txtIdIva.Text) != "int")
+                if (check.esNum(txtNombre.Text) != null)
                 {
-                    MensajeError("Los id deben ser números enteros.");
-                    error.SetError(txtIdIva, "Ingrese el id_iva");
+                    MensajeError("El nombre del producto no puede ser de tipo numerico.");
+                    error.SetError(txtPrecio, "Ingrese el nombre correctamente.");
                     return;
                 }
 
@@ -315,6 +314,8 @@ namespace PuntoDeVentas
                     MensajeError(respuesta);
                 }
 
+                btnActualizar.Enabled = false;
+                btnCrear.Enabled = true;
 
             }
             catch (Exception ex)
@@ -382,6 +383,9 @@ namespace PuntoDeVentas
             txtNombre.Text = datagridProductos.CurrentRow.Cells["nombre"].Value.ToString();
             txtPrecio.Text = datagridProductos.CurrentRow.Cells["precio"].Value.ToString();
             txtNota.Text = datagridProductos.CurrentRow.Cells["nota"].Value.ToString();
+
+            btnCrear.Enabled = false;
+            btnActualizar.Enabled = true;
            
         }
 
@@ -393,6 +397,11 @@ namespace PuntoDeVentas
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             limpiar();
+            extraer_ultimo_id();
+
+            btnCrear.Enabled = true;
+            btnActualizar.Enabled = false;
+
         }
 
 
@@ -431,6 +440,9 @@ namespace PuntoDeVentas
             txtPrecio.Text = datagridProductos.CurrentRow.Cells["precio"].Value.ToString();
             txtNota.Text = datagridProductos.CurrentRow.Cells["nota"].Value.ToString();
 
+            btnActualizar.Enabled = true;
+            btnCrear.Enabled = false;
+
         }
 
         private void btnSiguiente_Click(object sender, EventArgs e)
@@ -453,6 +465,10 @@ namespace PuntoDeVentas
             txtNombre.Text = datagridProductos.CurrentRow.Cells["nombre"].Value.ToString();
             txtPrecio.Text = datagridProductos.CurrentRow.Cells["precio"].Value.ToString();
             txtNota.Text = datagridProductos.CurrentRow.Cells["nota"].Value.ToString();
+
+            btnActualizar.Enabled = true;
+            btnCrear.Enabled = false;
+
         }
 
         private void btnPrimero_Click(object sender, EventArgs e)
@@ -467,6 +483,9 @@ namespace PuntoDeVentas
             txtNombre.Text = datagridProductos.CurrentRow.Cells["nombre"].Value.ToString();
             txtPrecio.Text = datagridProductos.CurrentRow.Cells["precio"].Value.ToString();
             txtNota.Text = datagridProductos.CurrentRow.Cells["nota"].Value.ToString();
+
+            btnActualizar.Enabled = true;
+            btnCrear.Enabled = false;
 
         }
 
@@ -483,6 +502,8 @@ namespace PuntoDeVentas
             txtPrecio.Text = datagridProductos.CurrentRow.Cells["precio"].Value.ToString();
             txtNota.Text = datagridProductos.CurrentRow.Cells["nota"].Value.ToString();
 
+            btnActualizar.Enabled = true;
+            btnCrear.Enabled = false;
 
         }
     }
